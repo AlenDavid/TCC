@@ -1,3 +1,13 @@
+# User-defined
 .vscode
-
 *.log
+
+# LaTeX
+dist/*
+*.aux
+*.pdf
+*.gz
+*.fls
+*.bbl
+*.blg
+*.fdb_latexmk
