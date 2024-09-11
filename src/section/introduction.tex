@@ -1,10 +1,19 @@
-% Falar sobre o problema; apresentar o que outras pessoas já falaram anteriormente sobre
+\section{Complexity and Refactoring}
 
-\section{Introdução}
+The first step of this article is to explain what is Complexity and how to observe it.
 
-``Acredito que a parte mais difícil na construção de software é a especificação, o projeto e o teste de seu construto
-conceitual, não o trabalho de representá-lo e testar a fidelidade da representação.'' \cite{brooks:95}
+% \cite{article:sonarpaper} starts their paper describing McCabe's Cyclomatic Complexity, as the past tool for
+% measuring the complexity of a code, that attempts to be a mathematical model, formulated for Fortran, but not
+% includes modern blocks like try/catch and lambdas; it acknowledges this metric as of little use above the method
+% level.
 
-Com essa fala, há quase trinta anos, Brooks denota a importância que os processos de produção de um software possuem;
-Segundo \cite{richards:20}, arquitetos de software procuram evitar construir sistemas
+% We can start by defining four major classes of code complexity: code size, represented by lines of code;
+% vocabulary size, by Halstead metrics; control-flow complexity, McCabe's Cyclomatic Complexity; and data-flow complexity
 
+Researches and practitioners alike know that to write code is to add more features to a system, increasing the
+perception of complexity \cite{book:menmonth}. As a part of their activities, and to reduce the unstoppable ball of mud
+threat \cite{book:softarch}, common refactoring patterns are applied so that it reduces the complexity of any given
+system \cite{book:refactoring}.
+
+\cite{article:fmricc} will bring four classes to define metrics of complexity of code, starting with lines of code,
+vocabulary, execution paths and data dependencies.
