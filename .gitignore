@@ -11,3 +11,6 @@ dist/*
 *.bbl
 *.blg
 *.fdb_latexmk
+
+# Code Analysis
+data
