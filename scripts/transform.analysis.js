@@ -159,9 +159,15 @@ const values = (file) => [
 ];
 
 const statement = (values) => {
-  const escapedValues = values.map((v) =>
-    typeof v === "string" ? `'${v}'` : v
-  );
+  const escapedValues = values.map((v) => {
+    const type = typeof v;
+    if (type === "string") return `'${v}'`;
+    if (type === "boolean") return "" + v;
+    if (type === "number") return v;
+    if (v === null || v === undefined) return 0;
+
+    throw new Error(`TypeError: Cannot parse ${type} into SQL statement`);
+  });
 
   const sqlKeys = keys.join(", ");
   const sqlValues = escapedValues.join(", ");

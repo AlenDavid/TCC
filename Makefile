@@ -1,23 +1,24 @@
-.PHONY=extract
+.PHONY=print clean
 
 CA=code-analysis
 
-SRCS := $(shell find code -name '*.js')
+CODES := $(shell find code -name '*.js')
+OBJS := $(CODES:%=data/%.json)
 
-OBJS := $(SRCS:%=data/%.json)
+data/tcc.sqlite: $(OBJS)
+	@mkdir -p $(dir $@)
+	@cat sql/spinup.sql | sqlite3 $@
 
-extract: $(OBJS)
-	node ./scripts/transform.analysis.js $< | sqlite3 ./data/tcc.sqlite
+	node ./scripts/transform.analysis.js $? | sqlite3 $@
+	@echo extract: done
 
-data/tcc.sqlite:
-	cat sql/spinup.sql | sqlite3 ./data/tcc.sqlite
-
-$(OBJS): $(SRCS)
-	$(CA) -l javascript -p $(dir $<) -m -O json -o ./data --pr
+data/code/%.js.json: code/%.js
+	$(CA) -l javascript -m -O json -o ./data --pr -p $?
 
 print:
-	@echo SRCS=$(SRCS)
-	@echo OBJS=$(OBJS)
+	$(info CODES=$(CODES))
+	$(info OBJS=$(OBJS))
 
 clean:
 	@rm -rf data/*
+	$(info clean: done)
