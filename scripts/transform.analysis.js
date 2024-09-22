@@ -3,7 +3,8 @@
 if (process.argv.length < 2) process.exit(1);
 
 const path = require("node:path");
-let file = require(path.join(process.cwd(), process.argv[2]));
+
+const files = process.argv.slice(2);
 
 const keys = [
   "name",
@@ -81,7 +82,7 @@ const keys = [
   '"metrics.mi.mi_visual_studio"',
 ];
 
-const values = [
+const values = (file) => [
   file.name,
   file.start_line,
   file.end_line,
@@ -157,7 +158,7 @@ const values = [
   file.metrics.mi.mi_visual_studio,
 ];
 
-const statement = () => {
+const statement = (values) => {
   const escapedValues = values.map((v) =>
     typeof v === "string" ? `'${v}'` : v
   );
@@ -170,5 +171,9 @@ const statement = () => {
   return `insert into metrics(${sqlKeys}) values(${sqlValues}) on conflict do update set ${sqlSet};`;
 };
 
-console.log(statement());
+for (const filepath of files) {
+  let file = require(path.join(process.cwd(), filepath));
+
+  console.log(statement(values(file)));
+}
 
