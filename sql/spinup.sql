@@ -1,5 +1,6 @@
 create table if not exists metrics (
-  name text PRIMARY KEY,
+  file text PRIMARY KEY,
+  name text,
   start_line int,
   end_line int,
   kind text,
@@ -72,4 +73,96 @@ create table if not exists metrics (
   "metrics.mi.mi_original" int,
   "metrics.mi.mi_sei" int,
   "metrics.mi.mi_visual_studio" int
-)
+);
+
+create view if not exists before AS
+select
+  *
+from
+  metrics
+where
+  file like '%before.js';
+
+create view if not exists after AS
+select
+  *
+from
+  metrics
+where
+  file like '%after.js';
+
+create view if not exists differences AS
+select
+  before.name as name,
+  before. "metrics.nargs.total_functions" - after. "metrics.nargs.total_functions" as "metrics.nargs.total_functions",
+  before. "metrics.nargs.total_closures" - after. "metrics.nargs.total_closures" as "metrics.nargs.total_closures",
+  before. "metrics.nargs.average_functions" - after. "metrics.nargs.average_functions" as "metrics.nargs.average_functions",
+  before. "metrics.nargs.average_closures" - after. "metrics.nargs.average_closures" as "metrics.nargs.average_closures",
+  before. "metrics.nargs.total" - after. "metrics.nargs.total" as "metrics.nargs.total",
+  before. "metrics.nargs.average" - after. "metrics.nargs.average" as "metrics.nargs.average",
+  before. "metrics.nargs.functions_min" - after. "metrics.nargs.functions_min" as "metrics.nargs.functions_min",
+  before. "metrics.nargs.functions_max" - after. "metrics.nargs.functions_max" as "metrics.nargs.functions_max",
+  before. "metrics.nargs.closures_min" - after. "metrics.nargs.closures_min" as "metrics.nargs.closures_min",
+  before. "metrics.nargs.closures_max" - after. "metrics.nargs.closures_max" as "metrics.nargs.closures_max",
+  before. "metrics.nexits.sum" - after. "metrics.nexits.sum" as "metrics.nexits.sum",
+  before. "metrics.nexits.average" - after. "metrics.nexits.average" as "metrics.nexits.average",
+  before. "metrics.nexits.min" - after. "metrics.nexits.min" as "metrics.nexits.min",
+  before. "metrics.nexits.max" - after. "metrics.nexits.max" as "metrics.nexits.max",
+  before. "metrics.cognitive.sum" - after. "metrics.cognitive.sum" as "metrics.cognitive.sum",
+  before. "metrics.cognitive.average" - after. "metrics.cognitive.average" as "metrics.cognitive.average",
+  before. "metrics.cognitive.min" - after. "metrics.cognitive.min" as "metrics.cognitive.min",
+  before. "metrics.cognitive.max" - after. "metrics.cognitive.max" as "metrics.cognitive.max",
+  before. "metrics.cyclomatic.sum" - after. "metrics.cyclomatic.sum" as "metrics.cyclomatic.sum",
+  before. "metrics.cyclomatic.average" - after. "metrics.cyclomatic.average" as "metrics.cyclomatic.average",
+  before. "metrics.cyclomatic.min" - after. "metrics.cyclomatic.min" as "metrics.cyclomatic.min",
+  before. "metrics.cyclomatic.max" - after. "metrics.cyclomatic.max" as "metrics.cyclomatic.max",
+  before. "metrics.halstead.distinct_operators" - after. "metrics.halstead.distinct_operators" as "metrics.halstead.distinct_operators",
+  before. "metrics.halstead.total_occurrences_of_operators" - after. "metrics.halstead.total_occurrences_of_operators" as "metrics.halstead.total_occurrences_of_operators",
+  before. "metrics.halstead.distinct_operands" - after. "metrics.halstead.distinct_operands" as "metrics.halstead.distinct_operands",
+  before. "metrics.halstead.total_occurrences_of_operands" - after. "metrics.halstead.total_occurrences_of_operands" as "metrics.halstead.total_occurrences_of_operands",
+  before. "metrics.halstead.length" - after. "metrics.halstead.length" as "metrics.halstead.length",
+  before. "metrics.halstead.estimated_program_length" - after. "metrics.halstead.estimated_program_length" as "metrics.halstead.estimated_program_length",
+  before. "metrics.halstead.purity_ratio" - after. "metrics.halstead.purity_ratio" as "metrics.halstead.purity_ratio",
+  before. "metrics.halstead.vocabulary" - after. "metrics.halstead.vocabulary" as "metrics.halstead.vocabulary",
+  before. "metrics.halstead.volume" - after. "metrics.halstead.volume" as "metrics.halstead.volume",
+  before. "metrics.halstead.difficulty" - after. "metrics.halstead.difficulty" as "metrics.halstead.difficulty",
+  before. "metrics.halstead.level" - after. "metrics.halstead.level" as "metrics.halstead.level",
+  before. "metrics.halstead.effort" - after. "metrics.halstead.effort" as "metrics.halstead.effort",
+  before. "metrics.halstead.time" - after. "metrics.halstead.time" as "metrics.halstead.time",
+  before. "metrics.halstead.bugs" - after. "metrics.halstead.bugs" as "metrics.halstead.bugs",
+  before. "metrics.loc.sloc" - after. "metrics.loc.sloc" as "metrics.loc.sloc",
+  before. "metrics.loc.ploc" - after. "metrics.loc.ploc" as "metrics.loc.ploc",
+  before. "metrics.loc.lloc" - after. "metrics.loc.lloc" as "metrics.loc.lloc",
+  before. "metrics.loc.cloc" - after. "metrics.loc.cloc" as "metrics.loc.cloc",
+  before. "metrics.loc.blank" - after. "metrics.loc.blank" as "metrics.loc.blank",
+  before. "metrics.loc.sloc_average" - after. "metrics.loc.sloc_average" as "metrics.loc.sloc_average",
+  before. "metrics.loc.ploc_average" - after. "metrics.loc.ploc_average" as "metrics.loc.ploc_average",
+  before. "metrics.loc.lloc_average" - after. "metrics.loc.lloc_average" as "metrics.loc.lloc_average",
+  before. "metrics.loc.cloc_average" - after. "metrics.loc.cloc_average" as "metrics.loc.cloc_average",
+  before. "metrics.loc.blank_average" - after. "metrics.loc.blank_average" as "metrics.loc.blank_average",
+  before. "metrics.loc.sloc_min" - after. "metrics.loc.sloc_min" as "metrics.loc.sloc_min",
+  before. "metrics.loc.sloc_max" - after. "metrics.loc.sloc_max" as "metrics.loc.sloc_max",
+  before. "metrics.loc.cloc_min" - after. "metrics.loc.cloc_min" as "metrics.loc.cloc_min",
+  before. "metrics.loc.cloc_max" - after. "metrics.loc.cloc_max" as "metrics.loc.cloc_max",
+  before. "metrics.loc.ploc_min" - after. "metrics.loc.ploc_min" as "metrics.loc.ploc_min",
+  before. "metrics.loc.ploc_max" - after. "metrics.loc.ploc_max" as "metrics.loc.ploc_max",
+  before. "metrics.loc.lloc_min" - after. "metrics.loc.lloc_min" as "metrics.loc.lloc_min",
+  before. "metrics.loc.lloc_max" - after. "metrics.loc.lloc_max" as "metrics.loc.lloc_max",
+  before. "metrics.loc.blank_min" - after. "metrics.loc.blank_min" as "metrics.loc.blank_min",
+  before. "metrics.loc.blank_max" - after. "metrics.loc.blank_max" as "metrics.loc.blank_max",
+  before. "metrics.nom.functions" - after. "metrics.nom.functions" as "metrics.nom.functions",
+  before. "metrics.nom.closures" - after. "metrics.nom.closures" as "metrics.nom.closures",
+  before. "metrics.nom.functions_average" - after. "metrics.nom.functions_average" as "metrics.nom.functions_average",
+  before. "metrics.nom.closures_average" - after. "metrics.nom.closures_average" as "metrics.nom.closures_average",
+  before. "metrics.nom.total" - after. "metrics.nom.total" as "metrics.nom.total",
+  before. "metrics.nom.average" - after. "metrics.nom.average" as "metrics.nom.average",
+  before. "metrics.nom.functions_min" - after. "metrics.nom.functions_min" as "metrics.nom.functions_min",
+  before. "metrics.nom.functions_max" - after. "metrics.nom.functions_max" as "metrics.nom.functions_max",
+  before. "metrics.nom.closures_min" - after. "metrics.nom.closures_min" as "metrics.nom.closures_min",
+  before. "metrics.nom.closures_max" - after. "metrics.nom.closures_max" as "metrics.nom.closures_max",
+  before. "metrics.mi.mi_original" - after. "metrics.mi.mi_original" as "metrics.mi.mi_original",
+  before. "metrics.mi.mi_sei" - after. "metrics.mi.mi_sei" as "metrics.mi.mi_sei",
+  before. "metrics.mi.mi_visual_studio" - after. "metrics.mi.mi_visual_studio" as "metrics.mi.mi_visual_studio"
+from
+  before
+  join after on before.name = after.name;

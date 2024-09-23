@@ -6,7 +6,10 @@ const path = require("node:path");
 
 const files = process.argv.slice(2);
 
+const pattern = /\d+\w+/;
+
 const keys = [
+  "file",
   "name",
   "start_line",
   "end_line",
@@ -84,6 +87,7 @@ const keys = [
 
 const values = (file) => [
   file.name,
+  pattern.exec(file.name)?.[0] ?? file.name,
   file.start_line,
   file.end_line,
   file.kind,
@@ -158,15 +162,15 @@ const values = (file) => [
   file.metrics.mi.mi_visual_studio,
 ];
 
-const statement = (values) => {
-  const escapedValues = values.map((v) => {
+const statement = (items) => {
+  const escapedValues = items.map((v) => {
     const type = typeof v;
     if (type === "string") return `'${v}'`;
     if (type === "boolean") return "" + v;
     if (type === "number") return v;
     if (v === null || v === undefined) return 0;
 
-    throw new Error(`TypeError: Cannot parse ${type} into SQL statement`);
+    throw new Error(`Cannot parse ${type} into SQL statement`);
   });
 
   const sqlKeys = keys.join(", ");
