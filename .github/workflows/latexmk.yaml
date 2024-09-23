@@ -7,11 +7,50 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git repository
+      - name: Checkout
         uses: actions/checkout@v2
-      - name: pdflatex main
-        uses: dante-ev/latex-action@latest
+
+      - name: Cache LaTeX Dependencies
+        id: cache-latex
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-latex-modules
         with:
-          root_file: src/article.tex
-          compiler: pdflatex
-          args: -interaction=nonstopmode -shell-escape
+          path: |
+            ~/.latex
+            /usr/local/texlive
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.github/workflows/latexmk.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - if: ${{ steps.cache-latex.outputs.cache-hit != 'true' }}
+        name: Install LaTeX latest
+        run: |
+          mkdir ~/.latex; cd ~/.latex
+          wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+          zcat < install-tl-unx.tar.gz | tar xf -
+          rm install-tl-unx.tar.gz
+          cd install-tl-*
+          sudo perl ./install-tl --no-interaction
+          echo "/usr/local/texlive/2024/bin/x86_64-linux" >> $GITHUB_PATH
+
+      - name: Build Article
+        working-directory: src
+        run: latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=../dist article
+
+      - name: Bump Version
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release Article
+        uses: softprops/action-gh-release@v2
+        with:
+          make_latest: true
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+          files: dist/article.pdf
