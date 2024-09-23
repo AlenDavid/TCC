@@ -7,13 +7,19 @@ The first step of this article is to explain what is Complexity and how to obser
 % includes modern blocks like try/catch and lambdas; it acknowledges this metric as of little use above the method
 % level.
 
-% We can start by defining four major classes of code complexity: code size, represented by lines of code;
-% vocabulary size, by Halstead metrics; control-flow complexity, McCabe's Cyclomatic Complexity; and data-flow complexity
 
-Researches and practitioners alike know that to write code is to add more features to a system, increasing the
-perception of complexity \cite{book:menmonth}. As a part of their activities, and to reduce the unstoppable ball of mud
-threat \cite{book:softarch}, common refactoring patterns are applied so that it reduces the complexity of one
-system \cite{book:refactoring}.
+Code Complexity is expressed by how much cognitive effort one must provide to understand and maintain a source code
+\cite{article:fmricc}. Complexity can also be a model, describing how big and difficult one system is. For this paper,
+we decided to use the metrics exported by \cite{article:mozilla}. This tool offers a handful set of metrics researched by
+different writes across the Software space. They are separated in four major classes: code size, represented by lines of code;
+vocabulary size, by Halstead metrics; control-flow complexity, McCabe's Cyclomatic Complexity; and data-flow complexity.
 
-\cite{article:fmricc} will define four classes to observe metrics of complexity of code: lines of code,
-vocabulary, execution paths and data dependencies.
+
+When the effort to make a significant change increase, \cite{book:refactoring} will recommend one engineer to practice
+refactoring. Refactor is a conjunction of defined techniques tool be used as leverage to reduce the amount of time spent
+writing code and making impactful changes in a system.
+
+
+The goal of this paper is to quantify the impact of those said techniques, not to say when to apply those and where.
+To achieve this goal, we will use the tool described above to analyze each JavaScript code implemented for each of the refactor
+techniques listed on \cite{book:refactoring}.

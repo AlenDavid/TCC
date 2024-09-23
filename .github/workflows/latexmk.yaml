@@ -10,31 +10,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cache LaTeX Dependencies
-        id: cache-latex
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-latex-modules
+      - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          path: |
-            ~/.latex
-            /usr/local/texlive
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.github/workflows/latexmk.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          packages: texlive
+          version: 1.0
+      # - name: Cache LaTeX Dependencies
+      #   id: cache-latex
+      #   uses: actions/cache@v3
+      #   env:
+      #     cache-name: cache-latex-modules
+      #   with:
+      #     path: |
+      #       ~/.latex
+      #       /usr/local/texlive
+      #     key: ${{ runner.os }}-build-${{ env.cache-name }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-build-${{ env.cache-name }}-
+      #       ${{ runner.os }}-build-
+      #       ${{ runner.os }}-
 
-      - if: ${{ steps.cache-latex.outputs.cache-hit != 'true' }}
-        name: Install LaTeX latest
-        run: |
-          mkdir ~/.latex; cd ~/.latex
-          wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-          zcat < install-tl-unx.tar.gz | tar xf -
-          rm install-tl-unx.tar.gz
-          cd install-tl-*
-          sudo perl ./install-tl --no-interaction
-          echo "/usr/local/texlive/2024/bin/x86_64-linux" >> $GITHUB_PATH
+      # - if: ${{ steps.cache-latex.outputs.cache-hit != 'true' }}
+      #   name: Install LaTeX latest
+      #   run: |
+      #     mkdir ~/.latex; cd ~/.latex
+      #     wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+      #     zcat < install-tl-unx.tar.gz | tar xf -
+      #     rm install-tl-unx.tar.gz
+      #     cd install-tl-*
+      #     sudo perl ./install-tl --no-interaction
+      #     echo "/usr/local/texlive/2024/bin/x86_64-linux" >> $GITHUB_PATH
 
       - name: Build Article
         working-directory: src
