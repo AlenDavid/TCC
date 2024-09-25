@@ -2,24 +2,36 @@
 
 The first step of this article is to explain what is Complexity and how to observe it.
 
-% \cite{article:sonarpaper} starts their paper describing McCabe's Cyclomatic Complexity, as the past tool for
-% measuring the complexity of a code, that attempts to be a mathematical model, formulated for Fortran, but not
-% includes modern blocks like try/catch and lambdas; it acknowledges this metric as of little use above the method
-% level.
+In Software engineering, Code Complexity can be expressed by how much cognitive effort one must provide to understand
+and maintain a source code \cite{article:fmricc}. This creates a barrier that in most cases hide bugs and problems.
+To measure complexity, one could start by counting the lines of code they target system have. Lines of code is usually
+referenced when discussing complexity \cite{article:rustcc}. In this paper, we count lines of code, physical lines (instructions),
+logical lines (statements), comment lines and blank lines.
+In literature, its common to see the use of Halstead measurements to describe complexity \cite{article:complexity_with_halstead}.
+Maurice Halstead, in 1977, created a set of rules that calculates the effort to understand target software, number of bugs
+expected in the program, average time that is taken to implement the program. To do so, it first measures the distinct and total
+operators and operands the program has. Halstead understands software as a sequence of operands and operators, and uses
+this information to calculate:
+
+N = The length of a program (the total occurrences of operands and operators);
+
+n = The vocabulary (the sum of distinct operands and operators);
 
 
-Code Complexity is expressed by how much cognitive effort one must provide to understand and maintain a source code
-\cite{article:fmricc}. Complexity can also be a model, describing how big and difficult one system is. For this paper,
-we decided to use the metrics exported by \cite{article:mozilla}. This tool offers a handful set of metrics researched by
-different writes across the Software space. They are separated in four major classes: code size, represented by lines of code;
-vocabulary size, by Halstead metrics; control-flow complexity, McCabe's Cyclomatic Complexity; and data-flow complexity.
+A common model used by companies to describe Complexity is McCabe's Cyclomatic Complexity and Sonar's Cognitive Complexity
+\cite{article:sonarpaper}.
+
+We will also use number of arguments, number of exits and maintainability metrics in our paper.
 
 
 When the effort to make a significant change increase, \cite{book:refactoring} will recommend one engineer to practice
 refactoring. Refactor is a conjunction of defined techniques tool be used as leverage to reduce the amount of time spent
 writing code that makes impactful changes in a system.
 
+The goal of this paper is to quantify the impact of those said techniques, not to say when and where to apply them.
+To achieve this goal, we will use the \cite{article:mozilla} tool to analyze each refactor technique listed on
+\cite{book:refactoring} book. This tool offers a handful set of metrics researched by
+different writers mentioned in the beginning of this chapter. They will be separated in four major classes: code size,
+represented by lines of code; vocabulary size, by Halstead metrics; control-flow complexity, McCabe's Cyclomatic
+Complexity; and data-flow complexity.
 
-The goal of this paper is to quantify the impact of those said techniques, not to say when to apply those and where.
-To achieve this goal, we will use the tool described above to analyze each JavaScript code implemented for each of the refactor
-techniques listed on \cite{book:refactoring}.
