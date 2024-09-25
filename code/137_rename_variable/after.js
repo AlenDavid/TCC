@@ -1,0 +1,2 @@
+let area = height * width;
+
