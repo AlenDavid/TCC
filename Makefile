@@ -13,6 +13,7 @@ data/tcc.sqlite: $(OBJS)
 	@echo extract: done
 
 data/code/%.js.json: code/%.js
+	@mkdir -p $(dir $@)
 	$(CA) -l javascript -m -O json -o ./data --pr -p $?
 
 print:
