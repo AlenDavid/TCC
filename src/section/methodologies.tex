@@ -11,307 +11,491 @@ refactoring APIs and dealing with inheritance.
 
 \section{The Impact of Common Refactor Patterns}
 
-\begin{verbatim}
-  123_inline_variable:
-  metrics.halstead.distinct_operators: 2
-  metrics.halstead.total_occurrences_of_operators: 3
-  metrics.halstead.total_occurrences_of_operands: 2
-  metrics.halstead.length: 5
-  metrics.halstead.estimated_program_length: 7.5097750043269365
-  metrics.halstead.purity_ratio: -0.1915557688979279
-  metrics.halstead.vocabulary: 2
-  metrics.halstead.volume: 19.18506523353571
-  metrics.halstead.difficulty: 2.5
-  metrics.halstead.level: -0.2777777777777778
-  metrics.halstead.effort: 146.3327935509107
-  metrics.halstead.time: 8.129599641717261
-  metrics.halstead.bugs: 0.006780889108125562
-  metrics.loc.sloc: 1
-  metrics.loc.ploc: 1
-  metrics.loc.sloc_average: 1
-  metrics.loc.ploc_average: 1
-  metrics.loc.sloc_min: 1
-  metrics.loc.sloc_max: 1
-  metrics.loc.ploc_min: 1
-  metrics.loc.ploc_max: 1
-  metrics.mi.mi_original: -14.2836769683758
-  metrics.mi.mi_sei: -20.606989927935686
-  metrics.mi.mi_visual_studio: -8.35302746688643
-124_change_function_declaration: {}
-154_split_phase:
-  metrics.nargs.total_functions: -3
-  metrics.nargs.average_functions: -1.5
-  metrics.nargs.total: -3
-  metrics.nargs.average: -1.5
-  metrics.nargs.functions_max: -2
-  metrics.nexits.sum: -2
-  metrics.nexits.average: -1
-  metrics.nexits.max: -1
-  metrics.cyclomatic.sum: -2
-  metrics.halstead.distinct_operators: -5
-  metrics.halstead.total_occurrences_of_operators: -21
-  metrics.halstead.distinct_operands: -7
-  metrics.halstead.total_occurrences_of_operands: -17
-  metrics.halstead.length: -38
-  metrics.halstead.estimated_program_length: -61.79678908260843
-  metrics.halstead.purity_ratio: 0.068720538500598
-  metrics.halstead.vocabulary: -12
-  metrics.halstead.volume: -215.7667323942802
-  metrics.halstead.difficulty: -5.964912280701754
-  metrics.halstead.level: 0.09049773755656107
-  metrics.halstead.effort: -3489.344816900921
-  metrics.halstead.time: -193.85248982782895
-  metrics.halstead.bugs: -0.05800204620881337
-  metrics.loc.sloc: -9
-  metrics.loc.ploc: -9
-  metrics.loc.lloc: -4
-  metrics.loc.sloc_average: -1
-  metrics.loc.ploc_average: -1
-  metrics.loc.lloc_average: -1.3333333333333333
-  metrics.loc.sloc_max: -4
-  metrics.loc.ploc_max: -4
-  metrics.loc.lloc_min: -2
-  metrics.loc.lloc_max: -2
-  metrics.nom.functions: -2
-  metrics.nom.functions_average: -0.6666666666666666
-  metrics.nom.total: -2
-  metrics.nom.average: -0.6666666666666666
-  metrics.nom.functions_max: -1
-  metrics.mi.mi_original: 27.280162704788893
-  metrics.mi.mi_sei: 39.15331573003404
-  metrics.mi.mi_visual_studio: 15.953311523268354
-140_introduce_parameter_object:
-  metrics.nargs.total_functions: 3
-  metrics.nargs.average_functions: 1
-  metrics.nargs.total: 3
-  metrics.nargs.average: 1
-  metrics.nargs.functions_max: 1
-  metrics.halstead.distinct_operators: 1
-  metrics.halstead.total_occurrences_of_operators: 3
-  metrics.halstead.distinct_operands: 1
-  metrics.halstead.total_occurrences_of_operands: 3
-  metrics.halstead.length: 6
-  metrics.halstead.estimated_program_length: 6.8547529722733405
-  metrics.halstead.purity_ratio: 0.08346657006704539
-  metrics.halstead.vocabulary: 2
-  metrics.halstead.volume: 24.45810119942449
-  metrics.halstead.difficulty: 1.35
-  metrics.halstead.level: -0.16666666666666663
-  metrics.halstead.effort: 144.89810148959464
-  metrics.halstead.time: 8.049894527199703
-  metrics.halstead.bugs: 0.005932782210092222
-  metrics.mi.mi_original: -2.381274657941816
-  metrics.mi.mi_sei: -3.435453140007212
-  metrics.mi.mi_visual_studio: -1.3925582794981324
-119_extract_variable:
-  metrics.halstead.distinct_operators: -2
-  metrics.halstead.total_occurrences_of_operators: -5
-  metrics.halstead.distinct_operands: -4
-  metrics.halstead.total_occurrences_of_operands: -1
-  metrics.halstead.length: -6
-  metrics.halstead.estimated_program_length: -31.326544770173967
-  metrics.halstead.purity_ratio: -0.3757825512083155
-  metrics.halstead.vocabulary: -6
-  metrics.halstead.volume: -46.537676002434466
-  metrics.halstead.difficulty: -0.16140350877192944
-  metrics.halstead.level: 0.002643678160919538
-  metrics.halstead.effort: -405.3688814188274
-  metrics.halstead.time: -22.520493412157066
-  metrics.halstead.bugs: -0.00712939261790007
-  metrics.mi.mi_original: 0.9387169146336873
-  metrics.mi.mi_sei: 1.3542822375405876
-  metrics.mi.mi_visual_studio: 0.548957260019705
-106_extract_function:
-  metrics.nargs.total_functions: -1
-  metrics.nargs.total: -1
-  metrics.cyclomatic.sum: -1
-  metrics.halstead.total_occurrences_of_operators: -5
-  metrics.halstead.distinct_operands: -1
-  metrics.halstead.total_occurrences_of_operands: -4
-  metrics.halstead.length: -9
-  metrics.halstead.estimated_program_length: -4.834466856136643
-  metrics.halstead.purity_ratio: 0.2628777549106902
-  metrics.halstead.vocabulary: -1
-  metrics.halstead.volume: -40.08565197893198
-  metrics.halstead.difficulty: -0.7954545454545459
-  metrics.halstead.level: 0.02506265664160401
-  metrics.halstead.effort: -343.12910475346655
-  metrics.halstead.time: -19.062728041859252
-  metrics.halstead.bugs: -0.008117283214533498
-  metrics.loc.sloc: -2
-  metrics.loc.ploc: -3
-  metrics.loc.lloc: -2
-  metrics.loc.cloc: 1
-  metrics.loc.sloc_average: 0.5
-  metrics.loc.cloc_average: 0.5
-  metrics.loc.sloc_min: -2
-  metrics.loc.sloc_max: -2
-  metrics.loc.cloc_min: 1
-  metrics.loc.cloc_max: 1
-  metrics.loc.ploc_min: -3
-  metrics.loc.ploc_max: -3
-  metrics.loc.lloc_min: -2
-  metrics.loc.lloc_max: -2
-  metrics.nom.functions: -1
-  metrics.nom.functions_average: -0.16666666666666663
-  metrics.nom.total: -1
-  metrics.nom.average: -0.16666666666666663
-  metrics.mi.mi_original: 5.730596182360259
-  metrics.mi.mi_sei: 35.798159974316135
-  metrics.mi.mi_visual_studio: 3.3512258376375854
-144_combine_functions_into_class:
-  metrics.nargs.total_functions: 3
-  metrics.nargs.average_functions: 1
-  metrics.nargs.total: 3
-  metrics.nargs.average: 1
-  metrics.nargs.functions_max: 1
-  metrics.cyclomatic.sum: -1
-  metrics.halstead.distinct_operators: 1
-  metrics.halstead.total_occurrences_of_operators: 2
-  metrics.halstead.total_occurrences_of_operands: 2
-  metrics.halstead.length: 4
-  metrics.halstead.estimated_program_length: 2.7548875021634682
-  metrics.halstead.purity_ratio: -0.05876507561334454
-  metrics.halstead.vocabulary: 1
-  metrics.halstead.volume: 13.675736322931343
-  metrics.halstead.difficulty: 1.25
-  metrics.halstead.level: -0.5555555555555556
-  metrics.halstead.effort: 66.31364111151142
-  metrics.halstead.time: 3.684091172861746
-  metrics.halstead.bugs: 0.0038224133779894837
-  metrics.loc.sloc: -2
-  metrics.loc.ploc: -2
-  metrics.loc.sloc_average: -0.25
-  metrics.loc.ploc_average: -0.25
-  metrics.loc.lloc_average: 0.15000000000000002
-  metrics.loc.sloc_min: -4
-  metrics.loc.sloc_max: -4
-  metrics.loc.ploc_min: -4
-  metrics.loc.ploc_max: -4
-  metrics.loc.lloc_min: -2
-  metrics.loc.lloc_max: -2
-  metrics.nom.functions_average: 0.15000000000000002
-  metrics.nom.average: 0.15000000000000002
-  metrics.mi.mi_original: 6.463404482891889
-  metrics.mi.mi_sei: 9.222901735323148
-  metrics.mi.mi_visual_studio: 3.7797687034455407
-132_encapsulate_variable:
-  metrics.nargs.total_functions: -1
-  metrics.nargs.average_functions: -0.5
-  metrics.nargs.total: -1
-  metrics.nargs.average: -0.5
-  metrics.nargs.functions_max: -1
-  metrics.nexits.sum: -1
-  metrics.nexits.average: -0.5
-  metrics.nexits.max: -1
-  metrics.cyclomatic.sum: -2
-  metrics.halstead.distinct_operators: -4
-  metrics.halstead.total_occurrences_of_operators: -12
-  metrics.halstead.distinct_operands: -3
-  metrics.halstead.total_occurrences_of_operands: -6
-  metrics.halstead.length: -18
-  metrics.halstead.estimated_program_length: -30.099865470109876
-  metrics.halstead.purity_ratio: 0.35264192493452473
-  metrics.halstead.vocabulary: -7
-  metrics.halstead.volume: -83.5845706196218
-  metrics.halstead.difficulty: -3.875
-  metrics.halstead.level: 0.18787878787878787
-  metrics.halstead.effort: -735.5074932765342
-  metrics.halstead.time: -40.8615274042519
-  metrics.halstead.bugs: -0.021832948791896626
-  metrics.loc.sloc: -2
-  metrics.loc.ploc: -2
-  metrics.loc.lloc: -6
-  metrics.loc.lloc_average: -2
-  metrics.loc.lloc_min: -2
-  metrics.loc.lloc_max: -2
-  metrics.nom.functions: -2
-  metrics.nom.functions_average: -0.6666666666666666
-  metrics.nom.total: -2
-  metrics.nom.average: -0.6666666666666666
-  metrics.nom.functions_max: -1
-  metrics.mi.mi_original: 23.993558365934547
-  metrics.mi.mi_sei: 34.411747949004706
-  metrics.mi.mi_visual_studio: 14.031320681833066
-149_combine_functions_into_transform:
-  metrics.nargs.total_functions: 1
-  metrics.nargs.total: 1
-  metrics.nexits.sum: -1
-  metrics.nexits.average: -1
-  metrics.nexits.max: -1
-  metrics.cyclomatic.sum: 1
-  metrics.halstead.distinct_operators: -5
-  metrics.halstead.total_occurrences_of_operators: -12
-  metrics.halstead.distinct_operands: -8
-  metrics.halstead.total_occurrences_of_operands: -14
-  metrics.halstead.length: -26
-  metrics.halstead.estimated_program_length: -52.543972800683335
-  metrics.halstead.purity_ratio: -0.772737716373147
-  metrics.halstead.vocabulary: -13
-  metrics.halstead.volume: -127.07576547675751
-  metrics.halstead.difficulty: -4.545454545454546
-  metrics.halstead.level: 0.3472222222222222
-  metrics.halstead.effort: -949.2669422442835
-  metrics.halstead.time: -52.73705234690464
-  metrics.halstead.bugs: -0.028728844003900966
-  metrics.loc.sloc: -4
-  metrics.loc.ploc: -4
-  metrics.loc.lloc: -2
-  metrics.loc.sloc_average: -2.3333333333333335
-  metrics.loc.ploc_average: -2.3333333333333335
-  metrics.loc.lloc_average: -1.3333333333333335
-  metrics.loc.sloc_min: -5
-  metrics.loc.sloc_max: -5
-  metrics.loc.ploc_min: -5
-  metrics.loc.ploc_max: -5
-  metrics.loc.lloc_min: -3
-  metrics.loc.lloc_max: -3
-  metrics.nom.functions: 1
-  metrics.nom.functions_average: 0.16666666666666663
-  metrics.nom.total: 1
-  metrics.nom.average: 0.16666666666666663
-  metrics.mi.mi_original: 26.811320210271106
-  metrics.mi.mi_sei: 38.78237856644864
-  metrics.mi.mi_visual_studio: 15.679134625889532
-115_inline_function:
-  metrics.nexits.sum: 2
-  metrics.nexits.average: 1
-  metrics.nexits.max: 1
-  metrics.cognitive.sum: 1
-  metrics.cognitive.average: 0.5
-  metrics.cognitive.max: 1
-  metrics.cyclomatic.sum: 1
-  metrics.cyclomatic.average: 0.33333333333333326
-  metrics.cyclomatic.max: 1
-  metrics.halstead.distinct_operators: 2
-  metrics.halstead.total_occurrences_of_operators: -6
-  metrics.halstead.distinct_operands: -3
-  metrics.halstead.total_occurrences_of_operands: -7
-  metrics.halstead.length: -13
-  metrics.halstead.estimated_program_length: -5.175907246432686
-  metrics.halstead.purity_ratio: 0.5028997495509888
-  metrics.halstead.vocabulary: -1
-  metrics.halstead.volume: -56.435503343933334
-  metrics.halstead.difficulty: 0.7045454545454541
-  metrics.halstead.level: -0.017265385686438317
-  metrics.halstead.effort: -263.4235793490849
-  metrics.halstead.time: -14.63464329717138
-  metrics.halstead.bugs: -0.006126772595516482
-  metrics.loc.sloc: -3
-  metrics.loc.ploc: -3
-  metrics.loc.lloc: -2
-  metrics.loc.sloc_average: -1
-  metrics.loc.ploc_average: -1
-  metrics.loc.lloc_average: -0.6666666666666667
-  metrics.loc.sloc_min: -6
-  metrics.loc.sloc_max: -6
-  metrics.loc.ploc_min: -6
-  metrics.loc.ploc_max: -6
-  metrics.loc.lloc_min: -4
-  metrics.loc.lloc_max: -4
-  metrics.mi.mi_original: 8.486218955662096
-  metrics.mi.mi_sei: 12.344845862636063
-  metrics.mi.mi_visual_studio: 4.962701143662045
-137_rename_variable: {}
+In this chapter, we show the numeric impact from before and after.
 
-\end{verbatim}
+\subsection{Chapter 6}
+
+This chapter covers the patterns for 106, 115, 119, 123, 124, 132, 137, 140, 144, 149 and 154 pattern codes.
+\subsubsection{ 106. Extract Function }
+
+\begin{center}
+  \begin{tabular}{ |c|c|c| }
+    \hline
+
+    Class & Metric Name                           & Difference \\
+
+    \hline
+
+    \multirow{ 1 }{6em}{ Cyclomatic }
+          & \verb|sum|                            & 1          \\
+    \hline
+    \multirow{ 12 }{6em}{ Halstead }
+          & \verb|bugs|                           & 0.01       \\
+          & \verb|difficulty|                     & 0.8        \\
+          & \verb|distinct_operands|              & 1          \\
+          & \verb|effort|                         & 343.13     \\
+          & \verb|length|                         & 9          \\
+          & \verb|level|                          & -0.03      \\
+          & \verb|purity_ratio|                   & -0.26      \\
+          & \verb|time|                           & 19.06      \\
+          & \verb|total_occurrences_of_operands|  & 4          \\
+          & \verb|total_occurrences_of_operators| & 5          \\
+          & \verb|vocabulary|                     & 1          \\
+          & \verb|volume|                         & 40.09      \\
+    \hline
+    \multirow{ 14 }{6em}{ Loc }
+          & \verb|cloc|                           & -1         \\
+          & \verb|cloc_average|                   & -0.5       \\
+          & \verb|cloc_max|                       & -1         \\
+          & \verb|cloc_min|                       & -1         \\
+          & \verb|lloc|                           & 2          \\
+          & \verb|lloc_max|                       & 2          \\
+          & \verb|lloc_min|                       & 2          \\
+          & \verb|ploc|                           & 3          \\
+          & \verb|ploc_max|                       & 3          \\
+          & \verb|ploc_min|                       & 3          \\
+          & \verb|sloc|                           & 2          \\
+          & \verb|sloc_average|                   & -0.5       \\
+          & \verb|sloc_max|                       & 2          \\
+          & \verb|sloc_min|                       & 2          \\
+    \hline
+    \multirow{ 3 }{6em}{ Mi }
+          & \verb|mi_original|                    & -5.73      \\
+          & \verb|mi_sei|                         & -35.8      \\
+          & \verb|mi_visual_studio|               & -3.35      \\
+    \hline
+    \multirow{ 2 }{6em}{ Nargs }
+          & \verb|total|                          & 1          \\
+          & \verb|total_functions|                & 1          \\
+    \hline
+    \multirow{ 4 }{6em}{ Nom }
+          & \verb|average|                        & 0.17       \\
+          & \verb|functions|                      & 1          \\
+          & \verb|functions_average|              & 0.17       \\
+          & \verb|total|                          & 1          \\
+    \hline
+  \end{tabular}
+\end{center}
+\subsubsection{ 115. Inline Function }
+
+\begin{center}
+  \begin{tabular}{ |c|c|c| }
+    \hline
+
+    Class & Metric Name                           & Difference \\
+
+    \hline
+
+    \multirow{ 3 }{6em}{ Cognitive }
+          & \verb|average|                        & -0.5       \\
+          & \verb|max|                            & -1         \\
+          & \verb|sum|                            & -1         \\
+    \hline
+    \multirow{ 3 }{6em}{ Cyclomatic }
+          & \verb|average|                        & -0.33      \\
+          & \verb|max|                            & -1         \\
+          & \verb|sum|                            & -1         \\
+    \hline
+    \multirow{ 13 }{6em}{ Halstead }
+          & \verb|bugs|                           & 0.01       \\
+          & \verb|difficulty|                     & -0.7       \\
+          & \verb|distinct_operands|              & 3          \\
+          & \verb|distinct_operators|             & -2         \\
+          & \verb|effort|                         & 263.42     \\
+          & \verb|length|                         & 13         \\
+          & \verb|level|                          & 0.02       \\
+          & \verb|purity_ratio|                   & -0.5       \\
+          & \verb|time|                           & 14.63      \\
+          & \verb|total_occurrences_of_operands|  & 7          \\
+          & \verb|total_occurrences_of_operators| & 6          \\
+          & \verb|vocabulary|                     & 1          \\
+          & \verb|volume|                         & 56.44      \\
+    \hline
+    \multirow{ 12 }{6em}{ Loc }
+          & \verb|lloc|                           & 2          \\
+          & \verb|lloc_average|                   & 0.67       \\
+          & \verb|lloc_max|                       & 4          \\
+          & \verb|lloc_min|                       & 4          \\
+          & \verb|ploc|                           & 3          \\
+          & \verb|ploc_average|                   & 1          \\
+          & \verb|ploc_max|                       & 6          \\
+          & \verb|ploc_min|                       & 6          \\
+          & \verb|sloc|                           & 3          \\
+          & \verb|sloc_average|                   & 1          \\
+          & \verb|sloc_max|                       & 6          \\
+          & \verb|sloc_min|                       & 6          \\
+    \hline
+    \multirow{ 3 }{6em}{ Mi }
+          & \verb|mi_original|                    & -8.49      \\
+          & \verb|mi_sei|                         & -12.34     \\
+          & \verb|mi_visual_studio|               & -4.96      \\
+    \hline
+    \multirow{ 3 }{6em}{ Nexits }
+          & \verb|average|                        & -1         \\
+          & \verb|max|                            & -1         \\
+          & \verb|sum|                            & -2         \\
+    \hline
+  \end{tabular}
+\end{center}
+\subsubsection{ 119. Extract Variable }
+
+\begin{center}
+  \begin{tabular}{ |c|c|c| }
+    \hline
+
+    Class & Metric Name                           & Difference \\
+
+    \hline
+
+    \multirow{ 13 }{6em}{ Halstead }
+          & \verb|bugs|                           & 0.01       \\
+          & \verb|difficulty|                     & 0.16       \\
+          & \verb|distinct_operands|              & 4          \\
+          & \verb|distinct_operators|             & 2          \\
+          & \verb|effort|                         & 405.37     \\
+          & \verb|length|                         & 6          \\
+          & \verb|level|                          & 0          \\
+          & \verb|purity_ratio|                   & 0.38       \\
+          & \verb|time|                           & 22.52      \\
+          & \verb|total_occurrences_of_operands|  & 1          \\
+          & \verb|total_occurrences_of_operators| & 5          \\
+          & \verb|vocabulary|                     & 6          \\
+          & \verb|volume|                         & 46.54      \\
+    \hline
+    \multirow{ 3 }{6em}{ Mi }
+          & \verb|mi_original|                    & -0.94      \\
+          & \verb|mi_sei|                         & -1.35      \\
+          & \verb|mi_visual_studio|               & -0.55      \\
+    \hline
+  \end{tabular}
+\end{center}
+\subsubsection{ 123. Inline Variable }
+
+\begin{center}
+  \begin{tabular}{ |c|c|c| }
+    \hline
+
+    Class & Metric Name                           & Difference \\
+
+    \hline
+
+    \multirow{ 12 }{6em}{ Halstead }
+          & \verb|bugs|                           & -0.01      \\
+          & \verb|difficulty|                     & -2.5       \\
+          & \verb|distinct_operators|             & -2         \\
+          & \verb|effort|                         & -146.33    \\
+          & \verb|length|                         & -5         \\
+          & \verb|level|                          & 0.28       \\
+          & \verb|purity_ratio|                   & 0.19       \\
+          & \verb|time|                           & -8.13      \\
+          & \verb|total_occurrences_of_operands|  & -2         \\
+          & \verb|total_occurrences_of_operators| & -3         \\
+          & \verb|vocabulary|                     & -2         \\
+          & \verb|volume|                         & -19.19     \\
+    \hline
+    \multirow{ 8 }{6em}{ Loc }
+          & \verb|ploc|                           & -1         \\
+          & \verb|ploc_average|                   & -1         \\
+          & \verb|ploc_max|                       & -1         \\
+          & \verb|ploc_min|                       & -1         \\
+          & \verb|sloc|                           & -1         \\
+          & \verb|sloc_average|                   & -1         \\
+          & \verb|sloc_max|                       & -1         \\
+          & \verb|sloc_min|                       & -1         \\
+    \hline
+    \multirow{ 3 }{6em}{ Mi }
+          & \verb|mi_original|                    & 14.28      \\
+          & \verb|mi_sei|                         & 20.61      \\
+          & \verb|mi_visual_studio|               & 8.35       \\
+    \hline
+  \end{tabular}
+\end{center}
+\subsubsection{ 132. Encapsulate Variable }
+
+\begin{center}
+  \begin{tabular}{ |c|c|c| }
+    \hline
+
+    Class & Metric Name                           & Difference \\
+
+    \hline
+
+    \multirow{ 1 }{6em}{ Cyclomatic }
+          & \verb|sum|                            & 2          \\
+    \hline
+    \multirow{ 13 }{6em}{ Halstead }
+          & \verb|bugs|                           & 0.02       \\
+          & \verb|difficulty|                     & 3.88       \\
+          & \verb|distinct_operands|              & 3          \\
+          & \verb|distinct_operators|             & 4          \\
+          & \verb|effort|                         & 735.51     \\
+          & \verb|length|                         & 18         \\
+          & \verb|level|                          & -0.19      \\
+          & \verb|purity_ratio|                   & -0.35      \\
+          & \verb|time|                           & 40.86      \\
+          & \verb|total_occurrences_of_operands|  & 6          \\
+          & \verb|total_occurrences_of_operators| & 12         \\
+          & \verb|vocabulary|                     & 7          \\
+          & \verb|volume|                         & 83.58      \\
+    \hline
+    \multirow{ 6 }{6em}{ Loc }
+          & \verb|lloc|                           & 6          \\
+          & \verb|lloc_average|                   & 2          \\
+          & \verb|lloc_max|                       & 2          \\
+          & \verb|lloc_min|                       & 2          \\
+          & \verb|ploc|                           & 2          \\
+          & \verb|sloc|                           & 2          \\
+    \hline
+    \multirow{ 3 }{6em}{ Mi }
+          & \verb|mi_original|                    & -23.99     \\
+          & \verb|mi_sei|                         & -34.41     \\
+          & \verb|mi_visual_studio|               & -14.03     \\
+    \hline
+    \multirow{ 5 }{6em}{ Nargs }
+          & \verb|average|                        & 0.5        \\
+          & \verb|average_functions|              & 0.5        \\
+          & \verb|functions_max|                  & 1          \\
+          & \verb|total|                          & 1          \\
+          & \verb|total_functions|                & 1          \\
+    \hline
+    \multirow{ 3 }{6em}{ Nexits }
+          & \verb|average|                        & 0.5        \\
+          & \verb|max|                            & 1          \\
+          & \verb|sum|                            & 1          \\
+    \hline
+    \multirow{ 5 }{6em}{ Nom }
+          & \verb|average|                        & 0.67       \\
+          & \verb|functions|                      & 2          \\
+          & \verb|functions_average|              & 0.67       \\
+          & \verb|functions_max|                  & 1          \\
+          & \verb|total|                          & 2          \\
+    \hline
+  \end{tabular}
+\end{center}
+\subsubsection{ 140. Introduce Parameter Object }
+
+\begin{center}
+  \begin{tabular}{ |c|c|c| }
+    \hline
+
+    Class & Metric Name                           & Difference \\
+
+    \hline
+
+    \multirow{ 13 }{6em}{ Halstead }
+          & \verb|bugs|                           & -0.01      \\
+          & \verb|difficulty|                     & -1.35      \\
+          & \verb|distinct_operands|              & -1         \\
+          & \verb|distinct_operators|             & -1         \\
+          & \verb|effort|                         & -144.9     \\
+          & \verb|length|                         & -6         \\
+          & \verb|level|                          & 0.17       \\
+          & \verb|purity_ratio|                   & -0.08      \\
+          & \verb|time|                           & -8.05      \\
+          & \verb|total_occurrences_of_operands|  & -3         \\
+          & \verb|total_occurrences_of_operators| & -3         \\
+          & \verb|vocabulary|                     & -2         \\
+          & \verb|volume|                         & -24.46     \\
+    \hline
+    \multirow{ 3 }{6em}{ Mi }
+          & \verb|mi_original|                    & 2.38       \\
+          & \verb|mi_sei|                         & 3.44       \\
+          & \verb|mi_visual_studio|               & 1.39       \\
+    \hline
+    \multirow{ 5 }{6em}{ Nargs }
+          & \verb|average|                        & -1         \\
+          & \verb|average_functions|              & -1         \\
+          & \verb|functions_max|                  & -1         \\
+          & \verb|total|                          & -3         \\
+          & \verb|total_functions|                & -3         \\
+    \hline
+  \end{tabular}
+\end{center}
+\subsubsection{ 144. Combine Functions Into Class }
+
+\begin{center}
+  \begin{tabular}{ |c|c|c| }
+    \hline
+
+    Class & Metric Name                           & Difference \\
+
+    \hline
+
+    \multirow{ 1 }{6em}{ Cyclomatic }
+          & \verb|sum|                            & 1          \\
+    \hline
+    \multirow{ 12 }{6em}{ Halstead }
+          & \verb|bugs|                           & 0          \\
+          & \verb|difficulty|                     & -1.25      \\
+          & \verb|distinct_operators|             & -1         \\
+          & \verb|effort|                         & -66.31     \\
+          & \verb|length|                         & -4         \\
+          & \verb|level|                          & 0.56       \\
+          & \verb|purity_ratio|                   & 0.06       \\
+          & \verb|time|                           & -3.68      \\
+          & \verb|total_occurrences_of_operands|  & -2         \\
+          & \verb|total_occurrences_of_operators| & -2         \\
+          & \verb|vocabulary|                     & -1         \\
+          & \verb|volume|                         & -13.68     \\
+    \hline
+    \multirow{ 11 }{6em}{ Loc }
+          & \verb|lloc_average|                   & -0.15      \\
+          & \verb|lloc_max|                       & 2          \\
+          & \verb|lloc_min|                       & 2          \\
+          & \verb|ploc|                           & 2          \\
+          & \verb|ploc_average|                   & 0.25       \\
+          & \verb|ploc_max|                       & 4          \\
+          & \verb|ploc_min|                       & 4          \\
+          & \verb|sloc|                           & 2          \\
+          & \verb|sloc_average|                   & 0.25       \\
+          & \verb|sloc_max|                       & 4          \\
+          & \verb|sloc_min|                       & 4          \\
+    \hline
+    \multirow{ 3 }{6em}{ Mi }
+          & \verb|mi_original|                    & -6.46      \\
+          & \verb|mi_sei|                         & -9.22      \\
+          & \verb|mi_visual_studio|               & -3.78      \\
+    \hline
+    \multirow{ 5 }{6em}{ Nargs }
+          & \verb|average|                        & -1         \\
+          & \verb|average_functions|              & -1         \\
+          & \verb|functions_max|                  & -1         \\
+          & \verb|total|                          & -3         \\
+          & \verb|total_functions|                & -3         \\
+    \hline
+    \multirow{ 2 }{6em}{ Nom }
+          & \verb|average|                        & -0.15      \\
+          & \verb|functions_average|              & -0.15      \\
+    \hline
+  \end{tabular}
+\end{center}
+\subsubsection{ 149. Combine Functions Into Transform }
+
+\begin{center}
+  \begin{tabular}{ |c|c|c| }
+    \hline
+
+    Class & Metric Name                           & Difference \\
+
+    \hline
+
+    \multirow{ 1 }{6em}{ Cyclomatic }
+          & \verb|sum|                            & -1         \\
+    \hline
+    \multirow{ 13 }{6em}{ Halstead }
+          & \verb|bugs|                           & 0.03       \\
+          & \verb|difficulty|                     & 4.55       \\
+          & \verb|distinct_operands|              & 8          \\
+          & \verb|distinct_operators|             & 5          \\
+          & \verb|effort|                         & 949.27     \\
+          & \verb|length|                         & 26         \\
+          & \verb|level|                          & -0.35      \\
+          & \verb|purity_ratio|                   & 0.77       \\
+          & \verb|time|                           & 52.74      \\
+          & \verb|total_occurrences_of_operands|  & 14         \\
+          & \verb|total_occurrences_of_operators| & 12         \\
+          & \verb|vocabulary|                     & 13         \\
+          & \verb|volume|                         & 127.08     \\
+    \hline
+    \multirow{ 12 }{6em}{ Loc }
+          & \verb|lloc|                           & 2          \\
+          & \verb|lloc_average|                   & 1.33       \\
+          & \verb|lloc_max|                       & 3          \\
+          & \verb|lloc_min|                       & 3          \\
+          & \verb|ploc|                           & 4          \\
+          & \verb|ploc_average|                   & 2.33       \\
+          & \verb|ploc_max|                       & 5          \\
+          & \verb|ploc_min|                       & 5          \\
+          & \verb|sloc|                           & 4          \\
+          & \verb|sloc_average|                   & 2.33       \\
+          & \verb|sloc_max|                       & 5          \\
+          & \verb|sloc_min|                       & 5          \\
+    \hline
+    \multirow{ 3 }{6em}{ Mi }
+          & \verb|mi_original|                    & -26.81     \\
+          & \verb|mi_sei|                         & -38.78     \\
+          & \verb|mi_visual_studio|               & -15.68     \\
+    \hline
+    \multirow{ 2 }{6em}{ Nargs }
+          & \verb|total|                          & -1         \\
+          & \verb|total_functions|                & -1         \\
+    \hline
+    \multirow{ 3 }{6em}{ Nexits }
+          & \verb|average|                        & 1          \\
+          & \verb|max|                            & 1          \\
+          & \verb|sum|                            & 1          \\
+    \hline
+    \multirow{ 4 }{6em}{ Nom }
+          & \verb|average|                        & -0.17      \\
+          & \verb|functions|                      & -1         \\
+          & \verb|functions_average|              & -0.17      \\
+          & \verb|total|                          & -1         \\
+    \hline
+  \end{tabular}
+\end{center}
+\subsubsection{ 154. Split Phase }
+
+\begin{center}
+  \begin{tabular}{ |c|c|c| }
+    \hline
+
+    Class & Metric Name                           & Difference \\
+
+    \hline
+
+    \multirow{ 1 }{6em}{ Cyclomatic }
+          & \verb|sum|                            & 2          \\
+    \hline
+    \multirow{ 13 }{6em}{ Halstead }
+          & \verb|bugs|                           & 0.06       \\
+          & \verb|difficulty|                     & 5.96       \\
+          & \verb|distinct_operands|              & 7          \\
+          & \verb|distinct_operators|             & 5          \\
+          & \verb|effort|                         & 3489.34    \\
+          & \verb|length|                         & 38         \\
+          & \verb|level|                          & -0.09      \\
+          & \verb|purity_ratio|                   & -0.07      \\
+          & \verb|time|                           & 193.85     \\
+          & \verb|total_occurrences_of_operands|  & 17         \\
+          & \verb|total_occurrences_of_operators| & 21         \\
+          & \verb|vocabulary|                     & 12         \\
+          & \verb|volume|                         & 215.77     \\
+    \hline
+    \multirow{ 10 }{6em}{ Loc }
+          & \verb|lloc|                           & 4          \\
+          & \verb|lloc_average|                   & 1.33       \\
+          & \verb|lloc_max|                       & 2          \\
+          & \verb|lloc_min|                       & 2          \\
+          & \verb|ploc|                           & 9          \\
+          & \verb|ploc_average|                   & 1          \\
+          & \verb|ploc_max|                       & 4          \\
+          & \verb|sloc|                           & 9          \\
+          & \verb|sloc_average|                   & 1          \\
+          & \verb|sloc_max|                       & 4          \\
+    \hline
+    \multirow{ 3 }{6em}{ Mi }
+          & \verb|mi_original|                    & -27.28     \\
+          & \verb|mi_sei|                         & -39.15     \\
+          & \verb|mi_visual_studio|               & -15.95     \\
+    \hline
+    \multirow{ 5 }{6em}{ Nargs }
+          & \verb|average|                        & 1.5        \\
+          & \verb|average_functions|              & 1.5        \\
+          & \verb|functions_max|                  & 2          \\
+          & \verb|total|                          & 3          \\
+          & \verb|total_functions|                & 3          \\
+    \hline
+    \multirow{ 3 }{6em}{ Nexits }
+          & \verb|average|                        & 1          \\
+          & \verb|max|                            & 1          \\
+          & \verb|sum|                            & 2          \\
+    \hline
+    \multirow{ 5 }{6em}{ Nom }
+          & \verb|average|                        & 0.67       \\
+          & \verb|functions|                      & 2          \\
+          & \verb|functions_average|              & 0.67       \\
+          & \verb|functions_max|                  & 1          \\
+          & \verb|total|                          & 2          \\
+    \hline
+  \end{tabular}
+\end{center}
