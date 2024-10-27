@@ -11,491 +11,463 @@ refactoring APIs and dealing with inheritance.
 
 \section{The Impact of Common Refactor Patterns}
 
-In this chapter, we show the numeric impact from before and after.
-
-\subsection{Chapter 6}
-
+In this chapter, we show the numeric impact from before and after, while explaining the metric. We start with chapter 6.
 This chapter covers the patterns for 106, 115, 119, 123, 124, 132, 137, 140, 144, 149 and 154 pattern codes.
-\subsubsection{ 106. Extract Function }
+\subsection{ 106.  Extract Function }
 
-\begin{center}
-  \begin{tabular}{ |c|c|c| }
-    \hline
+\begin{enumerate}
+      \item Cyclomatic
+            \begin{description}
+                  \item [sum] \textit{Change in 1} sum explanation here.
+            \end{description}
+      \item Halstead
+            \begin{description}
+                  \item [bugs] \textit{Change in 0.01} bugs explanation here.
+                  \item [difficulty] \textit{Change in 0.8} difficulty explanation here.
+                  \item [distinct\_operands] \textit{Change in 1} distinct\_operands explanation here.
+                  \item [effort] \textit{Change in 343.13} effort explanation here.
+                  \item [length] \textit{Change in 9} length explanation here.
+                  \item [level] \textit{Change in -0.03} level explanation here.
+                  \item [purity\_ratio] \textit{Change in -0.26} purity\_ratio explanation here.
+                  \item [time] \textit{Change in 19.06} time explanation here.
+                  \item [total\_occurrences\_of\_operands] \textit{Change in 4} total\_occurrences\_of\_operands explanation here.
+                  \item [total\_occurrences\_of\_operators] \textit{Change in 5} total\_occurrences\_of\_operators explanation here.
+                  \item [vocabulary] \textit{Change in 1} vocabulary explanation here.
+                  \item [volume] \textit{Change in 40.09} volume explanation here.
+            \end{description}
+      \item Loc
+            \begin{description}
+                  \item [cloc] \textit{Change in -1} cloc explanation here.
+                  \item [cloc\_average] \textit{Change in -0.5} cloc\_average explanation here.
+                  \item [cloc\_max] \textit{Change in -1} cloc\_max explanation here.
+                  \item [cloc\_min] \textit{Change in -1} cloc\_min explanation here.
+                  \item [lloc] \textit{Change in 2} lloc explanation here.
+                  \item [lloc\_max] \textit{Change in 2} lloc\_max explanation here.
+                  \item [lloc\_min] \textit{Change in 2} lloc\_min explanation here.
+                  \item [ploc] \textit{Change in 3} ploc explanation here.
+                  \item [ploc\_max] \textit{Change in 3} ploc\_max explanation here.
+                  \item [ploc\_min] \textit{Change in 3} ploc\_min explanation here.
+                  \item [sloc] \textit{Change in 2} sloc explanation here.
+                  \item [sloc\_average] \textit{Change in -0.5} sloc\_average explanation here.
+                  \item [sloc\_max] \textit{Change in 2} sloc\_max explanation here.
+                  \item [sloc\_min] \textit{Change in 2} sloc\_min explanation here.
+            \end{description}
+      \item Mi
+            \begin{description}
+                  \item [mi\_original] \textit{Change in -5.73} mi\_original explanation here.
+                  \item [mi\_sei] \textit{Change in -35.8} mi\_sei explanation here.
+                  \item [mi\_visual\_studio] \textit{Change in -3.35} mi\_visual\_studio explanation here.
+            \end{description}
+      \item Nargs
+            \begin{description}
+                  \item [total] \textit{Change in 1} total explanation here.
+                  \item [total\_functions] \textit{Change in 1} total\_functions explanation here.
+            \end{description}
+      \item Nom
+            \begin{description}
+                  \item [average] \textit{Change in 0.17} average explanation here.
+                  \item [functions] \textit{Change in 1} functions explanation here.
+                  \item [functions\_average] \textit{Change in 0.17} functions\_average explanation here.
+                  \item [total] \textit{Change in 1} total explanation here.
+            \end{description}
+\end{enumerate}
+\subsection{ 115.  Inline Function }
 
-    Class & Metric Name                           & Difference \\
+\begin{enumerate}
+      \item Cognitive
+            \begin{description}
+                  \item [average] \textit{Change in -0.5} average explanation here.
+                  \item [max] \textit{Change in -1} max explanation here.
+                  \item [sum] \textit{Change in -1} sum explanation here.
+            \end{description}
+      \item Cyclomatic
+            \begin{description}
+                  \item [average] \textit{Change in -0.33} average explanation here.
+                  \item [max] \textit{Change in -1} max explanation here.
+                  \item [sum] \textit{Change in -1} sum explanation here.
+            \end{description}
+      \item Halstead
+            \begin{description}
+                  \item [bugs] \textit{Change in 0.01} bugs explanation here.
+                  \item [difficulty] \textit{Change in -0.7} difficulty explanation here.
+                  \item [distinct\_operands] \textit{Change in 3} distinct\_operands explanation here.
+                  \item [distinct\_operators] \textit{Change in -2} distinct\_operators explanation here.
+                  \item [effort] \textit{Change in 263.42} effort explanation here.
+                  \item [length] \textit{Change in 13} length explanation here.
+                  \item [level] \textit{Change in 0.02} level explanation here.
+                  \item [purity\_ratio] \textit{Change in -0.5} purity\_ratio explanation here.
+                  \item [time] \textit{Change in 14.63} time explanation here.
+                  \item [total\_occurrences\_of\_operands] \textit{Change in 7} total\_occurrences\_of\_operands explanation here.
+                  \item [total\_occurrences\_of\_operators] \textit{Change in 6} total\_occurrences\_of\_operators explanation here.
+                  \item [vocabulary] \textit{Change in 1} vocabulary explanation here.
+                  \item [volume] \textit{Change in 56.44} volume explanation here.
+            \end{description}
+      \item Loc
+            \begin{description}
+                  \item [lloc] \textit{Change in 2} lloc explanation here.
+                  \item [lloc\_average] \textit{Change in 0.67} lloc\_average explanation here.
+                  \item [lloc\_max] \textit{Change in 4} lloc\_max explanation here.
+                  \item [lloc\_min] \textit{Change in 4} lloc\_min explanation here.
+                  \item [ploc] \textit{Change in 3} ploc explanation here.
+                  \item [ploc\_average] \textit{Change in 1} ploc\_average explanation here.
+                  \item [ploc\_max] \textit{Change in 6} ploc\_max explanation here.
+                  \item [ploc\_min] \textit{Change in 6} ploc\_min explanation here.
+                  \item [sloc] \textit{Change in 3} sloc explanation here.
+                  \item [sloc\_average] \textit{Change in 1} sloc\_average explanation here.
+                  \item [sloc\_max] \textit{Change in 6} sloc\_max explanation here.
+                  \item [sloc\_min] \textit{Change in 6} sloc\_min explanation here.
+            \end{description}
+      \item Mi
+            \begin{description}
+                  \item [mi\_original] \textit{Change in -8.49} mi\_original explanation here.
+                  \item [mi\_sei] \textit{Change in -12.34} mi\_sei explanation here.
+                  \item [mi\_visual\_studio] \textit{Change in -4.96} mi\_visual\_studio explanation here.
+            \end{description}
+      \item Nexits
+            \begin{description}
+                  \item [average] \textit{Change in -1} average explanation here.
+                  \item [max] \textit{Change in -1} max explanation here.
+                  \item [sum] \textit{Change in -2} sum explanation here.
+            \end{description}
+\end{enumerate}
+\subsection{ 119.  Extract Variable }
 
-    \hline
+\begin{enumerate}
+      \item Halstead
+            \begin{description}
+                  \item [bugs] \textit{Change in 0.01} bugs explanation here.
+                  \item [difficulty] \textit{Change in 0.16} difficulty explanation here.
+                  \item [distinct\_operands] \textit{Change in 4} distinct\_operands explanation here.
+                  \item [distinct\_operators] \textit{Change in 2} distinct\_operators explanation here.
+                  \item [effort] \textit{Change in 405.37} effort explanation here.
+                  \item [length] \textit{Change in 6} length explanation here.
+                  \item [level] \textit{Change in 0} level explanation here.
+                  \item [purity\_ratio] \textit{Change in 0.38} purity\_ratio explanation here.
+                  \item [time] \textit{Change in 22.52} time explanation here.
+                  \item [total\_occurrences\_of\_operands] \textit{Change in 1} total\_occurrences\_of\_operands explanation here.
+                  \item [total\_occurrences\_of\_operators] \textit{Change in 5} total\_occurrences\_of\_operators explanation here.
+                  \item [vocabulary] \textit{Change in 6} vocabulary explanation here.
+                  \item [volume] \textit{Change in 46.54} volume explanation here.
+            \end{description}
+      \item Mi
+            \begin{description}
+                  \item [mi\_original] \textit{Change in -0.94} mi\_original explanation here.
+                  \item [mi\_sei] \textit{Change in -1.35} mi\_sei explanation here.
+                  \item [mi\_visual\_studio] \textit{Change in -0.55} mi\_visual\_studio explanation here.
+            \end{description}
+\end{enumerate}
+\subsection{ 123.  Inline Variable }
 
-    \multirow{ 1 }{6em}{ Cyclomatic }
-          & \verb|sum|                            & 1          \\
-    \hline
-    \multirow{ 12 }{6em}{ Halstead }
-          & \verb|bugs|                           & 0.01       \\
-          & \verb|difficulty|                     & 0.8        \\
-          & \verb|distinct_operands|              & 1          \\
-          & \verb|effort|                         & 343.13     \\
-          & \verb|length|                         & 9          \\
-          & \verb|level|                          & -0.03      \\
-          & \verb|purity_ratio|                   & -0.26      \\
-          & \verb|time|                           & 19.06      \\
-          & \verb|total_occurrences_of_operands|  & 4          \\
-          & \verb|total_occurrences_of_operators| & 5          \\
-          & \verb|vocabulary|                     & 1          \\
-          & \verb|volume|                         & 40.09      \\
-    \hline
-    \multirow{ 14 }{6em}{ Loc }
-          & \verb|cloc|                           & -1         \\
-          & \verb|cloc_average|                   & -0.5       \\
-          & \verb|cloc_max|                       & -1         \\
-          & \verb|cloc_min|                       & -1         \\
-          & \verb|lloc|                           & 2          \\
-          & \verb|lloc_max|                       & 2          \\
-          & \verb|lloc_min|                       & 2          \\
-          & \verb|ploc|                           & 3          \\
-          & \verb|ploc_max|                       & 3          \\
-          & \verb|ploc_min|                       & 3          \\
-          & \verb|sloc|                           & 2          \\
-          & \verb|sloc_average|                   & -0.5       \\
-          & \verb|sloc_max|                       & 2          \\
-          & \verb|sloc_min|                       & 2          \\
-    \hline
-    \multirow{ 3 }{6em}{ Mi }
-          & \verb|mi_original|                    & -5.73      \\
-          & \verb|mi_sei|                         & -35.8      \\
-          & \verb|mi_visual_studio|               & -3.35      \\
-    \hline
-    \multirow{ 2 }{6em}{ Nargs }
-          & \verb|total|                          & 1          \\
-          & \verb|total_functions|                & 1          \\
-    \hline
-    \multirow{ 4 }{6em}{ Nom }
-          & \verb|average|                        & 0.17       \\
-          & \verb|functions|                      & 1          \\
-          & \verb|functions_average|              & 0.17       \\
-          & \verb|total|                          & 1          \\
-    \hline
-  \end{tabular}
-\end{center}
-\subsubsection{ 115. Inline Function }
+\begin{enumerate}
+      \item Halstead
+            \begin{description}
+                  \item [bugs] \textit{Change in -0.01} bugs explanation here.
+                  \item [difficulty] \textit{Change in -2.5} difficulty explanation here.
+                  \item [distinct\_operators] \textit{Change in -2} distinct\_operators explanation here.
+                  \item [effort] \textit{Change in -146.33} effort explanation here.
+                  \item [length] \textit{Change in -5} length explanation here.
+                  \item [level] \textit{Change in 0.28} level explanation here.
+                  \item [purity\_ratio] \textit{Change in 0.19} purity\_ratio explanation here.
+                  \item [time] \textit{Change in -8.13} time explanation here.
+                  \item [total\_occurrences\_of\_operands] \textit{Change in -2} total\_occurrences\_of\_operands explanation here.
+                  \item [total\_occurrences\_of\_operators] \textit{Change in -3} total\_occurrences\_of\_operators explanation here.
+                  \item [vocabulary] \textit{Change in -2} vocabulary explanation here.
+                  \item [volume] \textit{Change in -19.19} volume explanation here.
+            \end{description}
+      \item Loc
+            \begin{description}
+                  \item [ploc] \textit{Change in -1} ploc explanation here.
+                  \item [ploc\_average] \textit{Change in -1} ploc\_average explanation here.
+                  \item [ploc\_max] \textit{Change in -1} ploc\_max explanation here.
+                  \item [ploc\_min] \textit{Change in -1} ploc\_min explanation here.
+                  \item [sloc] \textit{Change in -1} sloc explanation here.
+                  \item [sloc\_average] \textit{Change in -1} sloc\_average explanation here.
+                  \item [sloc\_max] \textit{Change in -1} sloc\_max explanation here.
+                  \item [sloc\_min] \textit{Change in -1} sloc\_min explanation here.
+            \end{description}
+      \item Mi
+            \begin{description}
+                  \item [mi\_original] \textit{Change in 14.28} mi\_original explanation here.
+                  \item [mi\_sei] \textit{Change in 20.61} mi\_sei explanation here.
+                  \item [mi\_visual\_studio] \textit{Change in 8.35} mi\_visual\_studio explanation here.
+            \end{description}
+\end{enumerate}
+\subsection{ 132.  Encapsulate Variable }
 
-\begin{center}
-  \begin{tabular}{ |c|c|c| }
-    \hline
+\begin{enumerate}
+      \item Cyclomatic
+            \begin{description}
+                  \item [sum] \textit{Change in 2} sum explanation here.
+            \end{description}
+      \item Halstead
+            \begin{description}
+                  \item [bugs] \textit{Change in 0.02} bugs explanation here.
+                  \item [difficulty] \textit{Change in 3.88} difficulty explanation here.
+                  \item [distinct\_operands] \textit{Change in 3} distinct\_operands explanation here.
+                  \item [distinct\_operators] \textit{Change in 4} distinct\_operators explanation here.
+                  \item [effort] \textit{Change in 735.51} effort explanation here.
+                  \item [length] \textit{Change in 18} length explanation here.
+                  \item [level] \textit{Change in -0.19} level explanation here.
+                  \item [purity\_ratio] \textit{Change in -0.35} purity\_ratio explanation here.
+                  \item [time] \textit{Change in 40.86} time explanation here.
+                  \item [total\_occurrences\_of\_operands] \textit{Change in 6} total\_occurrences\_of\_operands explanation here.
+                  \item [total\_occurrences\_of\_operators] \textit{Change in 12} total\_occurrences\_of\_operators explanation here.
+                  \item [vocabulary] \textit{Change in 7} vocabulary explanation here.
+                  \item [volume] \textit{Change in 83.58} volume explanation here.
+            \end{description}
+      \item Loc
+            \begin{description}
+                  \item [lloc] \textit{Change in 6} lloc explanation here.
+                  \item [lloc\_average] \textit{Change in 2} lloc\_average explanation here.
+                  \item [lloc\_max] \textit{Change in 2} lloc\_max explanation here.
+                  \item [lloc\_min] \textit{Change in 2} lloc\_min explanation here.
+                  \item [ploc] \textit{Change in 2} ploc explanation here.
+                  \item [sloc] \textit{Change in 2} sloc explanation here.
+            \end{description}
+      \item Mi
+            \begin{description}
+                  \item [mi\_original] \textit{Change in -23.99} mi\_original explanation here.
+                  \item [mi\_sei] \textit{Change in -34.41} mi\_sei explanation here.
+                  \item [mi\_visual\_studio] \textit{Change in -14.03} mi\_visual\_studio explanation here.
+            \end{description}
+      \item Nargs
+            \begin{description}
+                  \item [average] \textit{Change in 0.5} average explanation here.
+                  \item [average\_functions] \textit{Change in 0.5} average\_functions explanation here.
+                  \item [functions\_max] \textit{Change in 1} functions\_max explanation here.
+                  \item [total] \textit{Change in 1} total explanation here.
+                  \item [total\_functions] \textit{Change in 1} total\_functions explanation here.
+            \end{description}
+      \item Nexits
+            \begin{description}
+                  \item [average] \textit{Change in 0.5} average explanation here.
+                  \item [max] \textit{Change in 1} max explanation here.
+                  \item [sum] \textit{Change in 1} sum explanation here.
+            \end{description}
+      \item Nom
+            \begin{description}
+                  \item [average] \textit{Change in 0.67} average explanation here.
+                  \item [functions] \textit{Change in 2} functions explanation here.
+                  \item [functions\_average] \textit{Change in 0.67} functions\_average explanation here.
+                  \item [functions\_max] \textit{Change in 1} functions\_max explanation here.
+                  \item [total] \textit{Change in 2} total explanation here.
+            \end{description}
+\end{enumerate}
+\subsection{ 140.  Introduce Parameter Object }
 
-    Class & Metric Name                           & Difference \\
+\begin{enumerate}
+      \item Halstead
+            \begin{description}
+                  \item [bugs] \textit{Change in -0.01} bugs explanation here.
+                  \item [difficulty] \textit{Change in -1.35} difficulty explanation here.
+                  \item [distinct\_operands] \textit{Change in -1} distinct\_operands explanation here.
+                  \item [distinct\_operators] \textit{Change in -1} distinct\_operators explanation here.
+                  \item [effort] \textit{Change in -144.9} effort explanation here.
+                  \item [length] \textit{Change in -6} length explanation here.
+                  \item [level] \textit{Change in 0.17} level explanation here.
+                  \item [purity\_ratio] \textit{Change in -0.08} purity\_ratio explanation here.
+                  \item [time] \textit{Change in -8.05} time explanation here.
+                  \item [total\_occurrences\_of\_operands] \textit{Change in -3} total\_occurrences\_of\_operands explanation here.
+                  \item [total\_occurrences\_of\_operators] \textit{Change in -3} total\_occurrences\_of\_operators explanation here.
+                  \item [vocabulary] \textit{Change in -2} vocabulary explanation here.
+                  \item [volume] \textit{Change in -24.46} volume explanation here.
+            \end{description}
+      \item Mi
+            \begin{description}
+                  \item [mi\_original] \textit{Change in 2.38} mi\_original explanation here.
+                  \item [mi\_sei] \textit{Change in 3.44} mi\_sei explanation here.
+                  \item [mi\_visual\_studio] \textit{Change in 1.39} mi\_visual\_studio explanation here.
+            \end{description}
+      \item Nargs
+            \begin{description}
+                  \item [average] \textit{Change in -1} average explanation here.
+                  \item [average\_functions] \textit{Change in -1} average\_functions explanation here.
+                  \item [functions\_max] \textit{Change in -1} functions\_max explanation here.
+                  \item [total] \textit{Change in -3} total explanation here.
+                  \item [total\_functions] \textit{Change in -3} total\_functions explanation here.
+            \end{description}
+\end{enumerate}
+\subsection{ 144.  Combine Functions Into Class }
 
-    \hline
+\begin{enumerate}
+      \item Cyclomatic
+            \begin{description}
+                  \item [sum] \textit{Change in 1} sum explanation here.
+            \end{description}
+      \item Halstead
+            \begin{description}
+                  \item [bugs] \textit{Change in 0} bugs explanation here.
+                  \item [difficulty] \textit{Change in -1.25} difficulty explanation here.
+                  \item [distinct\_operators] \textit{Change in -1} distinct\_operators explanation here.
+                  \item [effort] \textit{Change in -66.31} effort explanation here.
+                  \item [length] \textit{Change in -4} length explanation here.
+                  \item [level] \textit{Change in 0.56} level explanation here.
+                  \item [purity\_ratio] \textit{Change in 0.06} purity\_ratio explanation here.
+                  \item [time] \textit{Change in -3.68} time explanation here.
+                  \item [total\_occurrences\_of\_operands] \textit{Change in -2} total\_occurrences\_of\_operands explanation here.
+                  \item [total\_occurrences\_of\_operators] \textit{Change in -2} total\_occurrences\_of\_operators explanation here.
+                  \item [vocabulary] \textit{Change in -1} vocabulary explanation here.
+                  \item [volume] \textit{Change in -13.68} volume explanation here.
+            \end{description}
+      \item Loc
+            \begin{description}
+                  \item [lloc\_average] \textit{Change in -0.15} lloc\_average explanation here.
+                  \item [lloc\_max] \textit{Change in 2} lloc\_max explanation here.
+                  \item [lloc\_min] \textit{Change in 2} lloc\_min explanation here.
+                  \item [ploc] \textit{Change in 2} ploc explanation here.
+                  \item [ploc\_average] \textit{Change in 0.25} ploc\_average explanation here.
+                  \item [ploc\_max] \textit{Change in 4} ploc\_max explanation here.
+                  \item [ploc\_min] \textit{Change in 4} ploc\_min explanation here.
+                  \item [sloc] \textit{Change in 2} sloc explanation here.
+                  \item [sloc\_average] \textit{Change in 0.25} sloc\_average explanation here.
+                  \item [sloc\_max] \textit{Change in 4} sloc\_max explanation here.
+                  \item [sloc\_min] \textit{Change in 4} sloc\_min explanation here.
+            \end{description}
+      \item Mi
+            \begin{description}
+                  \item [mi\_original] \textit{Change in -6.46} mi\_original explanation here.
+                  \item [mi\_sei] \textit{Change in -9.22} mi\_sei explanation here.
+                  \item [mi\_visual\_studio] \textit{Change in -3.78} mi\_visual\_studio explanation here.
+            \end{description}
+      \item Nargs
+            \begin{description}
+                  \item [average] \textit{Change in -1} average explanation here.
+                  \item [average\_functions] \textit{Change in -1} average\_functions explanation here.
+                  \item [functions\_max] \textit{Change in -1} functions\_max explanation here.
+                  \item [total] \textit{Change in -3} total explanation here.
+                  \item [total\_functions] \textit{Change in -3} total\_functions explanation here.
+            \end{description}
+      \item Nom
+            \begin{description}
+                  \item [average] \textit{Change in -0.15} average explanation here.
+                  \item [functions\_average] \textit{Change in -0.15} functions\_average explanation here.
+            \end{description}
+\end{enumerate}
+\subsection{ 149.  Combine Functions Into Transform }
 
-    \multirow{ 3 }{6em}{ Cognitive }
-          & \verb|average|                        & -0.5       \\
-          & \verb|max|                            & -1         \\
-          & \verb|sum|                            & -1         \\
-    \hline
-    \multirow{ 3 }{6em}{ Cyclomatic }
-          & \verb|average|                        & -0.33      \\
-          & \verb|max|                            & -1         \\
-          & \verb|sum|                            & -1         \\
-    \hline
-    \multirow{ 13 }{6em}{ Halstead }
-          & \verb|bugs|                           & 0.01       \\
-          & \verb|difficulty|                     & -0.7       \\
-          & \verb|distinct_operands|              & 3          \\
-          & \verb|distinct_operators|             & -2         \\
-          & \verb|effort|                         & 263.42     \\
-          & \verb|length|                         & 13         \\
-          & \verb|level|                          & 0.02       \\
-          & \verb|purity_ratio|                   & -0.5       \\
-          & \verb|time|                           & 14.63      \\
-          & \verb|total_occurrences_of_operands|  & 7          \\
-          & \verb|total_occurrences_of_operators| & 6          \\
-          & \verb|vocabulary|                     & 1          \\
-          & \verb|volume|                         & 56.44      \\
-    \hline
-    \multirow{ 12 }{6em}{ Loc }
-          & \verb|lloc|                           & 2          \\
-          & \verb|lloc_average|                   & 0.67       \\
-          & \verb|lloc_max|                       & 4          \\
-          & \verb|lloc_min|                       & 4          \\
-          & \verb|ploc|                           & 3          \\
-          & \verb|ploc_average|                   & 1          \\
-          & \verb|ploc_max|                       & 6          \\
-          & \verb|ploc_min|                       & 6          \\
-          & \verb|sloc|                           & 3          \\
-          & \verb|sloc_average|                   & 1          \\
-          & \verb|sloc_max|                       & 6          \\
-          & \verb|sloc_min|                       & 6          \\
-    \hline
-    \multirow{ 3 }{6em}{ Mi }
-          & \verb|mi_original|                    & -8.49      \\
-          & \verb|mi_sei|                         & -12.34     \\
-          & \verb|mi_visual_studio|               & -4.96      \\
-    \hline
-    \multirow{ 3 }{6em}{ Nexits }
-          & \verb|average|                        & -1         \\
-          & \verb|max|                            & -1         \\
-          & \verb|sum|                            & -2         \\
-    \hline
-  \end{tabular}
-\end{center}
-\subsubsection{ 119. Extract Variable }
+\begin{enumerate}
+      \item Cyclomatic
+            \begin{description}
+                  \item [sum] \textit{Change in -1} sum explanation here.
+            \end{description}
+      \item Halstead
+            \begin{description}
+                  \item [bugs] \textit{Change in 0.03} bugs explanation here.
+                  \item [difficulty] \textit{Change in 4.55} difficulty explanation here.
+                  \item [distinct\_operands] \textit{Change in 8} distinct\_operands explanation here.
+                  \item [distinct\_operators] \textit{Change in 5} distinct\_operators explanation here.
+                  \item [effort] \textit{Change in 949.27} effort explanation here.
+                  \item [length] \textit{Change in 26} length explanation here.
+                  \item [level] \textit{Change in -0.35} level explanation here.
+                  \item [purity\_ratio] \textit{Change in 0.77} purity\_ratio explanation here.
+                  \item [time] \textit{Change in 52.74} time explanation here.
+                  \item [total\_occurrences\_of\_operands] \textit{Change in 14} total\_occurrences\_of\_operands explanation here.
+                  \item [total\_occurrences\_of\_operators] \textit{Change in 12} total\_occurrences\_of\_operators explanation here.
+                  \item [vocabulary] \textit{Change in 13} vocabulary explanation here.
+                  \item [volume] \textit{Change in 127.08} volume explanation here.
+            \end{description}
+      \item Loc
+            \begin{description}
+                  \item [lloc] \textit{Change in 2} lloc explanation here.
+                  \item [lloc\_average] \textit{Change in 1.33} lloc\_average explanation here.
+                  \item [lloc\_max] \textit{Change in 3} lloc\_max explanation here.
+                  \item [lloc\_min] \textit{Change in 3} lloc\_min explanation here.
+                  \item [ploc] \textit{Change in 4} ploc explanation here.
+                  \item [ploc\_average] \textit{Change in 2.33} ploc\_average explanation here.
+                  \item [ploc\_max] \textit{Change in 5} ploc\_max explanation here.
+                  \item [ploc\_min] \textit{Change in 5} ploc\_min explanation here.
+                  \item [sloc] \textit{Change in 4} sloc explanation here.
+                  \item [sloc\_average] \textit{Change in 2.33} sloc\_average explanation here.
+                  \item [sloc\_max] \textit{Change in 5} sloc\_max explanation here.
+                  \item [sloc\_min] \textit{Change in 5} sloc\_min explanation here.
+            \end{description}
+      \item Mi
+            \begin{description}
+                  \item [mi\_original] \textit{Change in -26.81} mi\_original explanation here.
+                  \item [mi\_sei] \textit{Change in -38.78} mi\_sei explanation here.
+                  \item [mi\_visual\_studio] \textit{Change in -15.68} mi\_visual\_studio explanation here.
+            \end{description}
+      \item Nargs
+            \begin{description}
+                  \item [total] \textit{Change in -1} total explanation here.
+                  \item [total\_functions] \textit{Change in -1} total\_functions explanation here.
+            \end{description}
+      \item Nexits
+            \begin{description}
+                  \item [average] \textit{Change in 1} average explanation here.
+                  \item [max] \textit{Change in 1} max explanation here.
+                  \item [sum] \textit{Change in 1} sum explanation here.
+            \end{description}
+      \item Nom
+            \begin{description}
+                  \item [average] \textit{Change in -0.17} average explanation here.
+                  \item [functions] \textit{Change in -1} functions explanation here.
+                  \item [functions\_average] \textit{Change in -0.17} functions\_average explanation here.
+                  \item [total] \textit{Change in -1} total explanation here.
+            \end{description}
+\end{enumerate}
+\subsection{ 154.  Split Phase }
 
-\begin{center}
-  \begin{tabular}{ |c|c|c| }
-    \hline
-
-    Class & Metric Name                           & Difference \\
-
-    \hline
-
-    \multirow{ 13 }{6em}{ Halstead }
-          & \verb|bugs|                           & 0.01       \\
-          & \verb|difficulty|                     & 0.16       \\
-          & \verb|distinct_operands|              & 4          \\
-          & \verb|distinct_operators|             & 2          \\
-          & \verb|effort|                         & 405.37     \\
-          & \verb|length|                         & 6          \\
-          & \verb|level|                          & 0          \\
-          & \verb|purity_ratio|                   & 0.38       \\
-          & \verb|time|                           & 22.52      \\
-          & \verb|total_occurrences_of_operands|  & 1          \\
-          & \verb|total_occurrences_of_operators| & 5          \\
-          & \verb|vocabulary|                     & 6          \\
-          & \verb|volume|                         & 46.54      \\
-    \hline
-    \multirow{ 3 }{6em}{ Mi }
-          & \verb|mi_original|                    & -0.94      \\
-          & \verb|mi_sei|                         & -1.35      \\
-          & \verb|mi_visual_studio|               & -0.55      \\
-    \hline
-  \end{tabular}
-\end{center}
-\subsubsection{ 123. Inline Variable }
-
-\begin{center}
-  \begin{tabular}{ |c|c|c| }
-    \hline
-
-    Class & Metric Name                           & Difference \\
-
-    \hline
-
-    \multirow{ 12 }{6em}{ Halstead }
-          & \verb|bugs|                           & -0.01      \\
-          & \verb|difficulty|                     & -2.5       \\
-          & \verb|distinct_operators|             & -2         \\
-          & \verb|effort|                         & -146.33    \\
-          & \verb|length|                         & -5         \\
-          & \verb|level|                          & 0.28       \\
-          & \verb|purity_ratio|                   & 0.19       \\
-          & \verb|time|                           & -8.13      \\
-          & \verb|total_occurrences_of_operands|  & -2         \\
-          & \verb|total_occurrences_of_operators| & -3         \\
-          & \verb|vocabulary|                     & -2         \\
-          & \verb|volume|                         & -19.19     \\
-    \hline
-    \multirow{ 8 }{6em}{ Loc }
-          & \verb|ploc|                           & -1         \\
-          & \verb|ploc_average|                   & -1         \\
-          & \verb|ploc_max|                       & -1         \\
-          & \verb|ploc_min|                       & -1         \\
-          & \verb|sloc|                           & -1         \\
-          & \verb|sloc_average|                   & -1         \\
-          & \verb|sloc_max|                       & -1         \\
-          & \verb|sloc_min|                       & -1         \\
-    \hline
-    \multirow{ 3 }{6em}{ Mi }
-          & \verb|mi_original|                    & 14.28      \\
-          & \verb|mi_sei|                         & 20.61      \\
-          & \verb|mi_visual_studio|               & 8.35       \\
-    \hline
-  \end{tabular}
-\end{center}
-\subsubsection{ 132. Encapsulate Variable }
-
-\begin{center}
-  \begin{tabular}{ |c|c|c| }
-    \hline
-
-    Class & Metric Name                           & Difference \\
-
-    \hline
-
-    \multirow{ 1 }{6em}{ Cyclomatic }
-          & \verb|sum|                            & 2          \\
-    \hline
-    \multirow{ 13 }{6em}{ Halstead }
-          & \verb|bugs|                           & 0.02       \\
-          & \verb|difficulty|                     & 3.88       \\
-          & \verb|distinct_operands|              & 3          \\
-          & \verb|distinct_operators|             & 4          \\
-          & \verb|effort|                         & 735.51     \\
-          & \verb|length|                         & 18         \\
-          & \verb|level|                          & -0.19      \\
-          & \verb|purity_ratio|                   & -0.35      \\
-          & \verb|time|                           & 40.86      \\
-          & \verb|total_occurrences_of_operands|  & 6          \\
-          & \verb|total_occurrences_of_operators| & 12         \\
-          & \verb|vocabulary|                     & 7          \\
-          & \verb|volume|                         & 83.58      \\
-    \hline
-    \multirow{ 6 }{6em}{ Loc }
-          & \verb|lloc|                           & 6          \\
-          & \verb|lloc_average|                   & 2          \\
-          & \verb|lloc_max|                       & 2          \\
-          & \verb|lloc_min|                       & 2          \\
-          & \verb|ploc|                           & 2          \\
-          & \verb|sloc|                           & 2          \\
-    \hline
-    \multirow{ 3 }{6em}{ Mi }
-          & \verb|mi_original|                    & -23.99     \\
-          & \verb|mi_sei|                         & -34.41     \\
-          & \verb|mi_visual_studio|               & -14.03     \\
-    \hline
-    \multirow{ 5 }{6em}{ Nargs }
-          & \verb|average|                        & 0.5        \\
-          & \verb|average_functions|              & 0.5        \\
-          & \verb|functions_max|                  & 1          \\
-          & \verb|total|                          & 1          \\
-          & \verb|total_functions|                & 1          \\
-    \hline
-    \multirow{ 3 }{6em}{ Nexits }
-          & \verb|average|                        & 0.5        \\
-          & \verb|max|                            & 1          \\
-          & \verb|sum|                            & 1          \\
-    \hline
-    \multirow{ 5 }{6em}{ Nom }
-          & \verb|average|                        & 0.67       \\
-          & \verb|functions|                      & 2          \\
-          & \verb|functions_average|              & 0.67       \\
-          & \verb|functions_max|                  & 1          \\
-          & \verb|total|                          & 2          \\
-    \hline
-  \end{tabular}
-\end{center}
-\subsubsection{ 140. Introduce Parameter Object }
-
-\begin{center}
-  \begin{tabular}{ |c|c|c| }
-    \hline
-
-    Class & Metric Name                           & Difference \\
-
-    \hline
-
-    \multirow{ 13 }{6em}{ Halstead }
-          & \verb|bugs|                           & -0.01      \\
-          & \verb|difficulty|                     & -1.35      \\
-          & \verb|distinct_operands|              & -1         \\
-          & \verb|distinct_operators|             & -1         \\
-          & \verb|effort|                         & -144.9     \\
-          & \verb|length|                         & -6         \\
-          & \verb|level|                          & 0.17       \\
-          & \verb|purity_ratio|                   & -0.08      \\
-          & \verb|time|                           & -8.05      \\
-          & \verb|total_occurrences_of_operands|  & -3         \\
-          & \verb|total_occurrences_of_operators| & -3         \\
-          & \verb|vocabulary|                     & -2         \\
-          & \verb|volume|                         & -24.46     \\
-    \hline
-    \multirow{ 3 }{6em}{ Mi }
-          & \verb|mi_original|                    & 2.38       \\
-          & \verb|mi_sei|                         & 3.44       \\
-          & \verb|mi_visual_studio|               & 1.39       \\
-    \hline
-    \multirow{ 5 }{6em}{ Nargs }
-          & \verb|average|                        & -1         \\
-          & \verb|average_functions|              & -1         \\
-          & \verb|functions_max|                  & -1         \\
-          & \verb|total|                          & -3         \\
-          & \verb|total_functions|                & -3         \\
-    \hline
-  \end{tabular}
-\end{center}
-\subsubsection{ 144. Combine Functions Into Class }
-
-\begin{center}
-  \begin{tabular}{ |c|c|c| }
-    \hline
-
-    Class & Metric Name                           & Difference \\
-
-    \hline
-
-    \multirow{ 1 }{6em}{ Cyclomatic }
-          & \verb|sum|                            & 1          \\
-    \hline
-    \multirow{ 12 }{6em}{ Halstead }
-          & \verb|bugs|                           & 0          \\
-          & \verb|difficulty|                     & -1.25      \\
-          & \verb|distinct_operators|             & -1         \\
-          & \verb|effort|                         & -66.31     \\
-          & \verb|length|                         & -4         \\
-          & \verb|level|                          & 0.56       \\
-          & \verb|purity_ratio|                   & 0.06       \\
-          & \verb|time|                           & -3.68      \\
-          & \verb|total_occurrences_of_operands|  & -2         \\
-          & \verb|total_occurrences_of_operators| & -2         \\
-          & \verb|vocabulary|                     & -1         \\
-          & \verb|volume|                         & -13.68     \\
-    \hline
-    \multirow{ 11 }{6em}{ Loc }
-          & \verb|lloc_average|                   & -0.15      \\
-          & \verb|lloc_max|                       & 2          \\
-          & \verb|lloc_min|                       & 2          \\
-          & \verb|ploc|                           & 2          \\
-          & \verb|ploc_average|                   & 0.25       \\
-          & \verb|ploc_max|                       & 4          \\
-          & \verb|ploc_min|                       & 4          \\
-          & \verb|sloc|                           & 2          \\
-          & \verb|sloc_average|                   & 0.25       \\
-          & \verb|sloc_max|                       & 4          \\
-          & \verb|sloc_min|                       & 4          \\
-    \hline
-    \multirow{ 3 }{6em}{ Mi }
-          & \verb|mi_original|                    & -6.46      \\
-          & \verb|mi_sei|                         & -9.22      \\
-          & \verb|mi_visual_studio|               & -3.78      \\
-    \hline
-    \multirow{ 5 }{6em}{ Nargs }
-          & \verb|average|                        & -1         \\
-          & \verb|average_functions|              & -1         \\
-          & \verb|functions_max|                  & -1         \\
-          & \verb|total|                          & -3         \\
-          & \verb|total_functions|                & -3         \\
-    \hline
-    \multirow{ 2 }{6em}{ Nom }
-          & \verb|average|                        & -0.15      \\
-          & \verb|functions_average|              & -0.15      \\
-    \hline
-  \end{tabular}
-\end{center}
-\subsubsection{ 149. Combine Functions Into Transform }
-
-\begin{center}
-  \begin{tabular}{ |c|c|c| }
-    \hline
-
-    Class & Metric Name                           & Difference \\
-
-    \hline
-
-    \multirow{ 1 }{6em}{ Cyclomatic }
-          & \verb|sum|                            & -1         \\
-    \hline
-    \multirow{ 13 }{6em}{ Halstead }
-          & \verb|bugs|                           & 0.03       \\
-          & \verb|difficulty|                     & 4.55       \\
-          & \verb|distinct_operands|              & 8          \\
-          & \verb|distinct_operators|             & 5          \\
-          & \verb|effort|                         & 949.27     \\
-          & \verb|length|                         & 26         \\
-          & \verb|level|                          & -0.35      \\
-          & \verb|purity_ratio|                   & 0.77       \\
-          & \verb|time|                           & 52.74      \\
-          & \verb|total_occurrences_of_operands|  & 14         \\
-          & \verb|total_occurrences_of_operators| & 12         \\
-          & \verb|vocabulary|                     & 13         \\
-          & \verb|volume|                         & 127.08     \\
-    \hline
-    \multirow{ 12 }{6em}{ Loc }
-          & \verb|lloc|                           & 2          \\
-          & \verb|lloc_average|                   & 1.33       \\
-          & \verb|lloc_max|                       & 3          \\
-          & \verb|lloc_min|                       & 3          \\
-          & \verb|ploc|                           & 4          \\
-          & \verb|ploc_average|                   & 2.33       \\
-          & \verb|ploc_max|                       & 5          \\
-          & \verb|ploc_min|                       & 5          \\
-          & \verb|sloc|                           & 4          \\
-          & \verb|sloc_average|                   & 2.33       \\
-          & \verb|sloc_max|                       & 5          \\
-          & \verb|sloc_min|                       & 5          \\
-    \hline
-    \multirow{ 3 }{6em}{ Mi }
-          & \verb|mi_original|                    & -26.81     \\
-          & \verb|mi_sei|                         & -38.78     \\
-          & \verb|mi_visual_studio|               & -15.68     \\
-    \hline
-    \multirow{ 2 }{6em}{ Nargs }
-          & \verb|total|                          & -1         \\
-          & \verb|total_functions|                & -1         \\
-    \hline
-    \multirow{ 3 }{6em}{ Nexits }
-          & \verb|average|                        & 1          \\
-          & \verb|max|                            & 1          \\
-          & \verb|sum|                            & 1          \\
-    \hline
-    \multirow{ 4 }{6em}{ Nom }
-          & \verb|average|                        & -0.17      \\
-          & \verb|functions|                      & -1         \\
-          & \verb|functions_average|              & -0.17      \\
-          & \verb|total|                          & -1         \\
-    \hline
-  \end{tabular}
-\end{center}
-\subsubsection{ 154. Split Phase }
-
-\begin{center}
-  \begin{tabular}{ |c|c|c| }
-    \hline
-
-    Class & Metric Name                           & Difference \\
-
-    \hline
-
-    \multirow{ 1 }{6em}{ Cyclomatic }
-          & \verb|sum|                            & 2          \\
-    \hline
-    \multirow{ 13 }{6em}{ Halstead }
-          & \verb|bugs|                           & 0.06       \\
-          & \verb|difficulty|                     & 5.96       \\
-          & \verb|distinct_operands|              & 7          \\
-          & \verb|distinct_operators|             & 5          \\
-          & \verb|effort|                         & 3489.34    \\
-          & \verb|length|                         & 38         \\
-          & \verb|level|                          & -0.09      \\
-          & \verb|purity_ratio|                   & -0.07      \\
-          & \verb|time|                           & 193.85     \\
-          & \verb|total_occurrences_of_operands|  & 17         \\
-          & \verb|total_occurrences_of_operators| & 21         \\
-          & \verb|vocabulary|                     & 12         \\
-          & \verb|volume|                         & 215.77     \\
-    \hline
-    \multirow{ 10 }{6em}{ Loc }
-          & \verb|lloc|                           & 4          \\
-          & \verb|lloc_average|                   & 1.33       \\
-          & \verb|lloc_max|                       & 2          \\
-          & \verb|lloc_min|                       & 2          \\
-          & \verb|ploc|                           & 9          \\
-          & \verb|ploc_average|                   & 1          \\
-          & \verb|ploc_max|                       & 4          \\
-          & \verb|sloc|                           & 9          \\
-          & \verb|sloc_average|                   & 1          \\
-          & \verb|sloc_max|                       & 4          \\
-    \hline
-    \multirow{ 3 }{6em}{ Mi }
-          & \verb|mi_original|                    & -27.28     \\
-          & \verb|mi_sei|                         & -39.15     \\
-          & \verb|mi_visual_studio|               & -15.95     \\
-    \hline
-    \multirow{ 5 }{6em}{ Nargs }
-          & \verb|average|                        & 1.5        \\
-          & \verb|average_functions|              & 1.5        \\
-          & \verb|functions_max|                  & 2          \\
-          & \verb|total|                          & 3          \\
-          & \verb|total_functions|                & 3          \\
-    \hline
-    \multirow{ 3 }{6em}{ Nexits }
-          & \verb|average|                        & 1          \\
-          & \verb|max|                            & 1          \\
-          & \verb|sum|                            & 2          \\
-    \hline
-    \multirow{ 5 }{6em}{ Nom }
-          & \verb|average|                        & 0.67       \\
-          & \verb|functions|                      & 2          \\
-          & \verb|functions_average|              & 0.67       \\
-          & \verb|functions_max|                  & 1          \\
-          & \verb|total|                          & 2          \\
-    \hline
-  \end{tabular}
-\end{center}
+\begin{enumerate}
+      \item Cyclomatic
+            \begin{description}
+                  \item [sum] \textit{Change in 2} sum explanation here.
+            \end{description}
+      \item Halstead
+            \begin{description}
+                  \item [bugs] \textit{Change in 0.06} bugs explanation here.
+                  \item [difficulty] \textit{Change in 5.96} difficulty explanation here.
+                  \item [distinct\_operands] \textit{Change in 7} distinct\_operands explanation here.
+                  \item [distinct\_operators] \textit{Change in 5} distinct\_operators explanation here.
+                  \item [effort] \textit{Change in 3489.34} effort explanation here.
+                  \item [length] \textit{Change in 38} length explanation here.
+                  \item [level] \textit{Change in -0.09} level explanation here.
+                  \item [purity\_ratio] \textit{Change in -0.07} purity\_ratio explanation here.
+                  \item [time] \textit{Change in 193.85} time explanation here.
+                  \item [total\_occurrences\_of\_operands] \textit{Change in 17} total\_occurrences\_of\_operands explanation here.
+                  \item [total\_occurrences\_of\_operators] \textit{Change in 21} total\_occurrences\_of\_operators explanation here.
+                  \item [vocabulary] \textit{Change in 12} vocabulary explanation here.
+                  \item [volume] \textit{Change in 215.77} volume explanation here.
+            \end{description}
+      \item Loc
+            \begin{description}
+                  \item [lloc] \textit{Change in 4} lloc explanation here.
+                  \item [lloc\_average] \textit{Change in 1.33} lloc\_average explanation here.
+                  \item [lloc\_max] \textit{Change in 2} lloc\_max explanation here.
+                  \item [lloc\_min] \textit{Change in 2} lloc\_min explanation here.
+                  \item [ploc] \textit{Change in 9} ploc explanation here.
+                  \item [ploc\_average] \textit{Change in 1} ploc\_average explanation here.
+                  \item [ploc\_max] \textit{Change in 4} ploc\_max explanation here.
+                  \item [sloc] \textit{Change in 9} sloc explanation here.
+                  \item [sloc\_average] \textit{Change in 1} sloc\_average explanation here.
+                  \item [sloc\_max] \textit{Change in 4} sloc\_max explanation here.
+            \end{description}
+      \item Mi
+            \begin{description}
+                  \item [mi\_original] \textit{Change in -27.28} mi\_original explanation here.
+                  \item [mi\_sei] \textit{Change in -39.15} mi\_sei explanation here.
+                  \item [mi\_visual\_studio] \textit{Change in -15.95} mi\_visual\_studio explanation here.
+            \end{description}
+      \item Nargs
+            \begin{description}
+                  \item [average] \textit{Change in 1.5} average explanation here.
+                  \item [average\_functions] \textit{Change in 1.5} average\_functions explanation here.
+                  \item [functions\_max] \textit{Change in 2} functions\_max explanation here.
+                  \item [total] \textit{Change in 3} total explanation here.
+                  \item [total\_functions] \textit{Change in 3} total\_functions explanation here.
+            \end{description}
+      \item Nexits
+            \begin{description}
+                  \item [average] \textit{Change in 1} average explanation here.
+                  \item [max] \textit{Change in 1} max explanation here.
+                  \item [sum] \textit{Change in 2} sum explanation here.
+            \end{description}
+      \item Nom
+            \begin{description}
+                  \item [average] \textit{Change in 0.67} average explanation here.
+                  \item [functions] \textit{Change in 2} functions explanation here.
+                  \item [functions\_average] \textit{Change in 0.67} functions\_average explanation here.
+                  \item [functions\_max] \textit{Change in 1} functions\_max explanation here.
+                  \item [total] \textit{Change in 2} total explanation here.
+            \end{description}
+\end{enumerate}
