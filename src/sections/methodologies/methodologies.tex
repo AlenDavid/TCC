@@ -1,12 +1,14 @@
-\section{Methodologies}
+\section{Calculating Code Complexity}
 
-Applying the metrics from \cite{article:mozilla} tool, we are able to calculate the impact of each refactoring example
-described in Fowler's refactoring book. To begin analyzing this data we adopted a folder strategy to separate by unique refactor,
-containing a before and after file. Then, we transform the output of each file - their complexity metrics - into SQL statements,
-to be added into a SQL database for the analysis of the next section.
+Applying the metrics from \cite{article:mozilla} we are able to calculate the complexity from before and after of each
+refactoring example described in Fowler's refactoring book. To begin analyzing this data we adopted a folder strategy to
+separate by unique refactor pattern, containing a before and after javascript file. Then, we transform the output of
+each file - their complexity metrics - into SQL statements, that are executed into a SQLite database for storage. In the
+last step we utilize SQL to distinguish the values extracted from each example and storing their differences in tables
+inside the database, to later be utilized in the analysis described in the next section.
 
-Starting at Chapter 6, \cite{book:refactoring} will present the first set of patterns, the most common ones.
-The next chapters of the book are going to talk about encapsulation, moving resources, organizing data, simplifying conditionals,
+Starting with Chapter 6, \cite{book:refactoring} will present the most common set of refactor patterns. The following
+chapters of the book are going to talk about encapsulation, moving resources, organizing data, simplifying conditionals,
 refactoring APIs and dealing with inheritance.
 
 \subsection{Cyclomatic Complexity}
@@ -14,10 +16,18 @@ refactoring APIs and dealing with inheritance.
 A common model used by companies to describe Complexity is McCabe's Cyclomatic Complexity. It calculates the control flow of a program.
 
 \begin{itemize}
-  \item Sum
-  \item Min
-  \item Max
-  \item Average
+  \item Sum \begin{description}
+          \item the overall complexity of every code block across the source files.
+        \end{description}
+  \item Min \begin{description}
+          \item the smallest value found for a method.
+        \end{description}
+  \item Max \begin{description}
+          \item the largest value found for a method.
+        \end{description}
+  \item Average \begin{description}
+          \item averaging the sum of every method Cyclomatic Complexity by the number of methods in the system.
+        \end{description}
 \end{itemize}
 
 
@@ -27,12 +37,19 @@ An alternative to Cyclomatic Complexity, \cite{article:sonarpaper} describes as 
 pointing that Cyclomatic Complexity is old as it doesn't acknowledge newer code structures like try/catch blocks and lambdas.
 
 \begin{itemize}
-  \item Sum
-  \item Min
-  \item Max
-  \item Average
+  \item Sum \begin{description}
+          \item the overall complexity of every code block across the source files.
+        \end{description}
+  \item Min \begin{description}
+          \item the smallest value found for a method.
+        \end{description}
+  \item Max \begin{description}
+          \item the largest value found for a method.
+        \end{description}
+  \item Average \begin{description}
+          \item averaging the sum of every method Cyclomatic Complexity by the number of methods in the system.
+        \end{description}
 \end{itemize}
-
 
 \subsection{Halstead Metrics}
 
@@ -76,13 +93,13 @@ $N_{1}$ as the total occurrence of distinct operators and $N_{2}$ for distinct o
           \item \(H = n_{1} \times log_2(n_{1}) + n_2 \times log_2(n_{2}) \)
         \end{description}
   \item Time required to Program (seconds) \begin{description}
-          \item \(T = \frac{E}{18} \)
+          \item \(T = E \div 18 \)
         \end{description}
   \item Number of delivered bugs \begin{description}
-          \item \(B = \frac{E^\frac{2}{3}}{3000} \)
+          \item \(B = E^\frac{2}{3} \div 3000 \)
         \end{description}
   \item Purity Ratio \begin{description}
-          \item \(PR = \frac{H}{N} \)
+          \item \(PR = H \div N \)
         \end{description}
 \end{itemize}
 
