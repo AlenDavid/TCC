@@ -1,12 +1,26 @@
 \subsection{106. Extract Function}
 
-TODO: Add pattern explanation here.
+The opposite of inline a function, this pattern creates a new function (but can also be a method or procedure) where the
+code content will be the lines we are extracting from another block of code.
+There's two useful situations we can use this: the first being repeated code across the application, so we wrap that code
+in a function and call it there; the second is to keep code cohesion, where reading the code explains the code.
 
-For Cyclomatic Complexity we identified that variable sum increased by 1.
-For Halstead we identified that variable bugs increased by 0.01, variable difficulty increased by 0.8, variable distinct\_operands increased by 1, variable effort increased by 343.13, variable length increased by 9, variable level decreased by -0.03, variable purity\_ratio decreased by -0.26, variable time increased by 19.06, variable total\_occurrences\_of\_operands increased by 4, variable total\_occurrences\_of\_operators increased by 5, variable vocabulary increased by 1, variable volume increased by 40.09.
+For Cyclomatic Complexity, we identified that variable sum increased by 1; this is a clear indication that we have a new
+function being accounted for this metric.
+
+For Halstead we identified a few small changes: the variable bugs increased by 0.01, difficulty increased by 0.8,
+distinct\_operands increased by 1, effort increased by 343.13, length increased by 9, level decreased by -0.03,
+purity\_ratio decreased by -0.26, time increased by 19.06, total\_occurrences\_of\_operands increased by 4,
+variable total\_occurrences\_of\_operators increased by 5, vocabulary increased by 1, volume increased by 40.09.
+Putting in perspective, vocabulary and distinct\_operands have the real impact as adding a new function increases
+the size of code for this example.
+
 For Lines of code we identified that variable cloc decreased by -1, variable cloc\_average decreased by -0.5, variable cloc\_max decreased by -1, variable cloc\_min decreased by -1, variable lloc increased by 2, variable lloc\_max increased by 2, variable lloc\_min increased by 2, variable ploc increased by 3, variable ploc\_max increased by 3, variable ploc\_min increased by 3, variable sloc increased by 2, variable sloc\_average decreased by -0.5, variable sloc\_max increased by 2, variable sloc\_min increased by 2.
+
 For Maintainability Index we identified that variable mi\_original decreased by -5.73, variable mi\_sei decreased by -35.8, variable mi\_visual\_studio decreased by -3.35.
-For  we identified that variable total increased by 1, variable total\_functions increased by 1.
+
+For we identified that variable total increased by 1, variable total\_functions increased by 1.
+
 For Number of methods we identified that variable average increased by 0.17, variable functions increased by 1, variable functions\_average increased by 0.17, variable total increased by 1.
 
 \subsection{115. Inline Function}
