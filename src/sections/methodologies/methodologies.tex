@@ -1,15 +1,9 @@
 \section{Calculating Code Complexity}
 
-Applying the metrics from \cite{article:mozilla} we are able to calculate the complexity from before and after of each
-refactoring example described in Fowler's refactoring book. To begin analyzing this data we adopted a folder strategy to
-separate by unique refactor pattern, containing a before and after javascript file. Then, we transform the output of
-each file - their complexity metrics - into SQL statements, that are executed into a SQLite database for storage. In the
-last step we utilize SQL to distinguish the values extracted from each example and storing their differences in tables
-inside the database, to later be utilized in the analysis described in the next section.
+In this section we will be explaining the metrics returning by \cite{article:mozilla} tool, used as data generated to observe
+the differences between before and after of each refactor implementation.
 
-% Starting with Chapter 6, \cite{book:refactoring} will present the most common set of refactor patterns. The following
-% chapters of the book are going to talk about encapsulation, moving resources, organizing data, simplifying conditionals,
-% refactoring APIs and dealing with inheritance.
+TODO: add information about mozilla tool here.
 
 \subsection{Cyclomatic Complexity}
 
