@@ -1,13 +1,23 @@
 \section{Calculating Code Complexity}
 
-In this section we will be explaining the metrics returning by \cite{article:mozilla} tool, used as data generated to observe
-the differences between before and after of each refactor implementation.
+In this section we are covering the classes and numeric values observed in this work.
+First, lets introduce the tool we will be using to collect them.
 
-TODO: add information about mozilla tool here.
+\cite{article:mozilla} work is used in this paper to collect the differences between
+before and after of each refactor implementation.
 
 \subsection{Cyclomatic Complexity}
 
-A common model used by companies to describe Complexity is McCabe's Cyclomatic Complexity. It calculates the control flow of a program.
+A common model used by companies to describe Complexity is McCabe's Cyclomatic Complexity.
+It calculates the control flow of a program.
+
+It calculates the number of linearly independent paths through the code,
+providing insight into how many test cases are needed for thorough coverage.
+This metric is determined by counting the number of decision points, such as if statements,
+loops, and case conditions, and adding one to represent the single entry-exit path.
+
+A higher cyclomatic complexity indicates more intricate and potentially error-prone code,
+which can be harder to test, maintain, and understand.
 
 \begin{itemize}
   \item Sum \begin{description}
@@ -29,6 +39,8 @@ A common model used by companies to describe Complexity is McCabe's Cyclomatic C
 
 An alternative to Cyclomatic Complexity, \cite{article:sonarpaper} describes as the new way of calculating complexity of code,
 pointing that Cyclomatic Complexity is old as it doesn't acknowledge newer code structures like try/catch blocks and lambdas.
+
+Similar items as Cyclomatic Complexity.
 
 \begin{itemize}
   \item Sum \begin{description}
@@ -133,13 +145,7 @@ For data flow, we quantify the occurrence of methods, functions, closures, exits
           \item Counts the occurrence of functions or closures. \begin{description}
                   \item[Functions] quantity of functions observed in source code.
                   \item[Closures] the quantity of closures observed in source code.
-                  \item[Functions average] the average of functions in source code.
-                  \item[Closures average] the average of functions in source code.
                   \item[Total] The sum of functions and closures.
-                  \item[Functions min] the average of functions in source code.
-                  \item[Functions max] the average of functions in source code.
-                  \item[Closures min] the average of functions in source code.
-                  \item[Closures max] the average of functions in source code.
                 \end{description}
         \end{description}
 
@@ -147,7 +153,7 @@ For data flow, we quantify the occurrence of methods, functions, closures, exits
           \item Counts the occurrence of exits in methods. \begin{description}
                   \item[Sum] The total occurrence of exits found.
                   \item[Average] The total occurrence of exits divided by total of methods.
-                  \item[Min] The smallest value found for $NEXITS$.
+                  \item[Min] The smallest value found for $NEXITS$ across methods.
                   \item[Max] The opposite, this one is the maximum value found.
                 \end{description}
         \end{description}
@@ -156,7 +162,7 @@ For data flow, we quantify the occurrence of methods, functions, closures, exits
           \item Counts the occurrence of exits in methods. \begin{description}
                   \item[Sum] The total occurrence of arguments found.
                   \item[Average] The total occurrence of arguments divided by total of methods.
-                  \item[Min] The smallest value found for $NARGS$.
+                  \item[Min] The smallest value found for $NARGS$ across methods.
                   \item[Max] The opposite, this one is the maximum value found.
                 \end{description}
         \end{description}
