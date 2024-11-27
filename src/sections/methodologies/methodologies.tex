@@ -68,46 +68,9 @@ The variables used in Halstead metrics starts with $n_{1}$, representing the num
 number of distinct operands. Then we calculate the total occurrences of both variables across the software code, calculating
 $N_{1}$ as the total occurrence of distinct operators and $N_{2}$ for distinct operands.
 
-\begin{itemize}
-  \item Base Metrics \begin{description}
-          \item $n_{1} = $ Quantity of distinct operators
-          \item $n_{2} = $ Quantity of distinct operands
-          \item $N_{1} = $ Sum of occurrence of operators
-          \item $N_{2} = $ Sum of occurrence of operands
-        \end{description}
-  \item Program Length \begin{description}
-          \item The sum of N1 and N2 totalizes the length of the program, being the total occurrence of both operands and operators.
-          \item $N = N_{1} + N_{2}$
-        \end{description}
-  \item Vocabulary \begin{description}
-          \item The sum of n1 and n2 is the vocabulary, being the unique functions and variables available through execution.
-          \item $n = n_{1} + n_{2}$
-        \end{description}
-  \item Volume \begin{description}
-          \item \(V = N \times \log_2(n)\)
-        \end{description}
-  \item Difficulty \begin{description}
-          \item  \(D = \frac{n_{1}}{2} \times \frac{N_{2}}{n_{2}}\)
-        \end{description}
-  \item Program Level \begin{description}
-          \item \(L = \frac{1}{D}\)
-        \end{description}
-  \item Effort \begin{description}
-          \item \(E = D \times V\)
-        \end{description}
-  \item Estimated Program Length \begin{description}
-          \item \(H = n_{1} \times log_2(n_{1}) + n_2 \times log_2(n_{2}) \)
-        \end{description}
-  \item Time required to Program (seconds) \begin{description}
-          \item \(T = E \div 18 \)
-        \end{description}
-  \item Number of delivered bugs \begin{description}
-          \item \(B = E^\frac{2}{3} \div 3000 \)
-        \end{description}
-  \item Purity Ratio \begin{description}
-          \item \(PR = H \div N \)
-        \end{description}
-\end{itemize}
+The volume (\(V\)) of a program quantifies the size of its implementation as \(N \times \log_2(n)\). Difficulty (\(D\)) reflects the effort needed to understand the program, calculated as \(\frac{n_1}{2} \times \frac{N_2}{n_2}\). The program level (\(L\)) is the inverse of difficulty, indicating how close the program is to optimal implementation.
+
+Effort (\(E\)), which equals \(D \times V\), represents the cognitive workload required to write the program. The estimated program length (\(H\)) offers an approximation of the program's ideal length using logarithms of the operator and operand counts. The time required to develop the program (\(T\)) is given by \(E \div 18\), and the number of delivered bugs (\(B\)) is estimated as \(E^{\frac{2}{3}} \div 3000\). Finally, the purity ratio (\(PR\)), defined as \(H \div N\), measures how well-structured the program is relative to its actual length.
 
 \subsection{Lines of Code}
 
@@ -119,22 +82,19 @@ logical lines ($LLOC$), the count of statements; and blank lines ($BLANK$) repre
 
 This high level metric can be found in code editors (like Visual Studio), giving developers a score to say how well maintain
 a source code is. It takes in account source lines of code, Cyclomatic Complexity and Halstead metrics's Volume to calculate its Index value.
-The metric from Software Engineering Institute even include lines of comment in their formula.
 
-\begin{itemize}
-  \item MI$_{O}$ \begin{description}
-          \item Original Maintainability Index
-          \item \(171 - 5.2 \times \ln(V) - 0.23 \times CC - 16.2 * \ln(SLOC) \)
-        \end{description}
-  \item MI$_{SEI}$ \begin{description}
-          \item MI by Software Engineering Institute
-          \item \(171 - 5.2 \times \ln(V) - 0.23 \times CC - 16.2 * \log_2(SLOC) + 50 \times \sin(\sqrt{2.4 \times \frac{CLOC}{SLOC}}) \)
-        \end{description}
-  \item MI$_{VS}$ \begin{description}
-          \item MI implemented in Visual Studio IDE
-          \item \(\max(0, \) MI\(_{O} \times \frac{100}{171})\)
-        \end{description}
-\end{itemize}
+The Original Maintainability Index (\(MI_O\)) is a formula used to assess software maintainability.
+It combines the program's volume (\(V\)), cyclomatic complexity (\(CC\)), and source lines of code (\(SLOC\)) to provide a score.
+The formula is \(171 - 5.2 \times \ln(V) - 0.23 \times CC - 16.2 \times \ln(SLOC)\).
+
+The Maintainability Index by the Software Engineering Institute (\(MI_{SEI}\)) builds on the original formula by
+adding a factor that accounts for the ratio of commented lines of code (\(CLOC\)) to total source lines of code (\(SLOC\)).
+This addition emphasizes the impact of documentation on maintainability.
+The formula is \(171 - 5.2 \times \ln(V) - 0.23 \times CC - 16.2 \times \ln(SLOC) + 50 \times \sin(\sqrt{2.4 \times \frac{CLOC}{SLOC}})\).
+
+The Maintainability Index implemented in Visual Studio (\(MI_{VS}\)) modifies \(MI_O\) to scale the value
+between 0 and 100 for a more interpretable range.
+It is calculated as \(\max(0, MI_O \times \frac{100}{171})\).
 
 \subsection{Number of methods, exits and arguments}
 
