@@ -1,21 +1,15 @@
 \section{Calculating Code Complexity}
 
-In this section we are covering the classes and numeric values observed in this work.
+In this section we cover the classes and numeric values observed in this work.
 First, lets introduce the tool we will be using to collect them.
-
-\cite{article:mozilla} work is used in this paper to collect the differences between
+\cite{article:mozilla} will be used in this paper to collect the differences between
 before and after of each refactor implementation.
 
 \subsection{Cyclomatic Complexity}
 
 A common model used by companies to describe Complexity is McCabe's Cyclomatic Complexity.
-It calculates the control flow of a program.
-
-It calculates the number of linearly independent paths through the code,
-providing insight into how many test cases are needed for thorough coverage.
 This metric is determined by counting the number of decision points, such as if statements,
 loops, and case conditions, and adding one to represent the single entry-exit path.
-
 A higher cyclomatic complexity indicates more intricate and potentially error-prone code,
 which can be harder to test, maintain, and understand.
 
@@ -30,7 +24,7 @@ which can be harder to test, maintain, and understand.
           \item the largest value found for a method.
         \end{description}
   \item Average \begin{description}
-          \item averaging the sum of every method Cyclomatic Complexity by the number of methods in the system.
+          \item averaging the sum of every method by the number of methods in the system.
         \end{description}
 \end{itemize}
 
@@ -53,16 +47,18 @@ Similar items as Cyclomatic Complexity.
           \item the largest value found for a method.
         \end{description}
   \item Average \begin{description}
-          \item averaging the sum of every method Cyclomatic Complexity by the number of methods in the system.
+          \item averaging the sum of every method by the number of methods in the system.
         \end{description}
 \end{itemize}
 
 \subsection{Halstead Metrics}
 
-In literature, its common to see the use of Halstead measurements to describe complexity \cite{article:complexity_with_halstead}.
-Maurice Halstead, in 1977, created a set of quantitative rules that calculates the effort to understand target software, number of bugs
-expected in the program, average time that is taken to implement the program. To do so, it first measures the distinct and total
-operators and operands the program has and uses these four base measures as information to understand the software as a whole.
+In literature, its common to see the use of Halstead measurements to describe complexity
+\cite{article:complexity_with_halstead}.
+Maurice Halstead, in 1977, created a set of quantitative rules that calculates the effort to understand target software,
+number of bugs expected in the program, average time that is taken to implement the program.
+To do so, it first measures the distinct and total operators and operands the program has and uses these four base
+measures as information to understand the software as a whole.
 
 The variables used in Halstead metrics starts with $n_{1}$, representing the number of distinct operators and $n_{2}$ the
 number of distinct operands. Then we calculate the total occurrences of both variables across the software code, calculating
