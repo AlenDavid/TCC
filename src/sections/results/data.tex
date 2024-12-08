@@ -104,7 +104,8 @@ Overall, the "Combine Functions Into Class" pattern can help simplify code struc
 
 \subsection{149. Combine Functions Into Transform}
 
-The pattern described in this section involves some significant changes in code metrics following the application of a refactoring or restructuring. Though the exact pattern name is missing from the prompt, it is likely referring to a situation where the structure or design of the code is adjusted in a way that introduces complexity in some areas (such as Halstead metrics) while also simplifying or reorganizing others. These kinds of changes might stem from combining functions into larger units, introducing new parameters, or consolidating code logic in ways that increase the overall maintainability, cohesion, or flexibility of the code.
+The "Combine Functions Into Class" pattern involves taking a set of related functions and grouping them into a single transform function.
+This pattern is useful when functions exits and entries are used together in a chain. Instead of having these functions scattered across different parts of the codebase, encapsulating them within a transform function allows for better cohesion and a single point of interaction for the result object.
 
 Cyclomatic Complexity: The sum variable decreases by -1, indicating a reduction in the complexity of the code structure. This decrease might suggest that some conditional logic or branching has been simplified or eliminated.
 
