@@ -121,6 +121,9 @@ Overall, while the changes brought some increase in complexity (as reflected in 
 
 \subsection{154. Split Phase}
 
+The last pattern in this work involves taking some sequence of code, usually performing some handful operations that are quite hard to read or understand - for example, regex strings, splitting an array and returning exactly the second or third object - and abstracting them
+behind functions. This is common for large projects because it helps carrying out the most machine-like code behind a named function and allowing the maintainer to provide their intent in that block of code.
+
 In this analysis, several key metrics were observed following a change in the code.
 
 For Cyclomatic Complexity, the variable "sum" increased by 2. This suggests that the changes introduced additional decision points or branches in the code, which is typical when functionality is added or modified.
