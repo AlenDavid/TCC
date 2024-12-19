@@ -20,3 +20,18 @@ To achieve this goal, we will use the \cite{article:mozilla} tool to analyze eac
 different writers mentioned in the beginning of this chapter. These metrics are separated in four major classes: code size,
 represented by lines of code; vocabulary size, by Halstead metrics; control-flow complexity, McCabe's Cyclomatic
 Complexity; data-flow complexity.
+
+\section{Related Work}
+
+\cite{ardito2021evaluation} use Rust and other languages to compare the same solution and check different complexity metrics
+from them, in order to evaluate which language is less complex for the same implementation.
+
+\cite{muriana2021comparison} leverages different search algorithms in three languages (Java, Python and C++), while
+measuring the resulted complexity between these implementations. In their analysis, C++ takes a lead in linear search but
+Python and Java are less complex in binary search. They understand that the three languages are good for bot search algorithms.
+
+\subsection{This Paper Contribution}
+
+While some authors focused on comparing metrics of Software Complexity in different languages, we focused on the comparison
+of different strategies of maintaining code. We decided to use \cite{book:refactoring} as a source of code change patterns.
+We encourage the reader to pursue the comparison of other authors in this same segment.
